@@ -90,7 +90,7 @@ class main(SlikPlugin):
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
              #print_level=0,
-             output_extra_params=['cosmo.Yp','cosmo.H0','cmb_result['cl_TT']'] #,'cl_TT'
+             output_extra_params=['cosmo.Yp','cosmo.H0'] #,'cl_TT'
         )
 
 
