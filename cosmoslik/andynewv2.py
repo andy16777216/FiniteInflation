@@ -90,7 +90,7 @@ class main(SlikPlugin):
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
              #print_level=0,
-             output_extra_params=['cosmo.Yp','cosmo.H0','self.cl_TT2','self.cl_TT3','self.cl_TT4','self.cl_TT5','self.cl_TT6','self.cl_TT7','self.cl_TT8','self.cl_TT20','self.cl_TT40','self.cl_TT80','self.cl_TT120','self.cl_TT200','self.cl_TT500','self.cl_TT1000','self.cl_TT2000','self.cl_TT2999']
+             output_extra_params=['cosmo.Yp','cosmo.H0','cl_TT2','cl_TT3','cl_TT4','cl_TT5','cl_TT6','cl_TT7','cl_TT8','cl_TT20','cl_TT40','cl_TT80','cl_TT120','cl_TT200','cl_TT500','cl_TT1000','cl_TT2000','cl_TT2999']
 	)
 
 
