@@ -90,8 +90,7 @@ class main(SlikPlugin):
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
              #print_level=0,
-             output_extra_params=['cosmo.Yp','cosmo.H0'] #,'cl_TT'
-        )
+             output_extra_params=['cosmo.Yp','cosmo.H0','self.cl_TT2','self.cl_TT3','self.cl_TT4','self.cl_TT5','self.cl_TT6','self.cl_TT7','self.cl_TT8','self.cl_TT20','self.cl_TT40','self.cl_TT80','self.cl_TT120','self.cl_TT200','self.cl_TT500','self.cl_TT1000','self.cl_TT2000','self.cl_TT2999')
 
 
 
@@ -104,7 +103,24 @@ class main(SlikPlugin):
         #self.cosmo.leq = 125
 	    #print 'getting cmb'
         self.cmb_result = self.get_cmb(force = True, outputs=['cl_TT'],**self.cosmo)
-        #self.cl_TT = self.cmb_result['cl_TT']
+        self.cl_TT = self.cmb_result['cl_TT']
+        self.cl_TT2 = self.cl_TT[2]
+        self.cl_TT3 = self.cl_TT[3]
+        self.cl_TT4 = self.cl_TT[4]
+        self.cl_TT5 = self.cl_TT[5]
+        self.cl_TT6 = self.cl_TT[6]
+        self.cl_TT7 = self.cl_TT[7]
+        self.cl_TT8 = self.cl_TT[8]
+        self.cl_TT20 = self.cl_TT[20]
+        self.cl_TT40 = self.cl_TT[40]
+        self.cl_TT80 = self.cl_TT[80]
+        self.cl_TT120 = self.cl_TT[120]
+        self.cl_TT200 = self.cl_TT[200]
+        self.cl_TT500 = self.cl_TT[500]
+        self.cl_TT1000 = self.cl_TT[1000]
+        self.cl_TT2000 = self.cl_TT[2000]
+        self.cl_TT2999 = self.cl_TT[2999]
+        
         return lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result))
