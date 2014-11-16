@@ -986,7 +986,7 @@ int primordial_analytic_spectrum(
                                  ) {
 
   if (ppm->is_non_zero[index_md][index_ic1_ic2] == _TRUE_) {
-    *pk = ppm->amplitude[index_md][index_ic1_ic2]/(1.+exp((log(k)-ppm->cutoff[index_md][index_ic1_ic2])*(-1./(1.-ppm->exponent[index_md][index_ic1_ic2])+1.)))*exp((ppm->tilt[index_md][index_ic1_ic2]-1.)*log(k/ppm->k_pivot)+ 0.5 * ppm->running[index_md][index_ic1_ic2] * pow(log(k/ppm->k_pivot), 2.));
+    *pk = ppm->amplitude[index_md][index_ic1_ic2]*(1.-exp(-pow((k/exp(ppm->cutoff[index_md][index_ic1_ic2])),1./(1.-ppm->exponent[index_md][index_ic1_ic2])-1.)))*exp((ppm->tilt[index_md][index_ic1_ic2]-1.)*log(k/ppm->k_pivot)+ 0.5 * ppm->running[index_md][index_ic1_ic2] * pow(log(k/ppm->k_pivot), 2.));
 /* ANDY */
   }
   else {
