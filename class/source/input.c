@@ -2956,7 +2956,7 @@ int input_default_precision ( struct precision * ppr ) {
   ppr->k_step_super=0.002;
   ppr->k_step_transition=0.2;
   ppr->k_step_super_reduction=0.1;
-  ppr->k_per_decade_for_pk=10.;
+  ppr->k_per_decade_for_pk=50.; /* ANDY default set to 10, changed */
   ppr->k_per_decade_for_bao=70.;
   ppr->k_bao_center=3.;
   ppr->k_bao_width=4.;
@@ -3003,7 +3003,7 @@ int input_default_precision ( struct precision * ppr ) {
    * - parameter related to the primordial spectra
    */
 
-  ppr->k_per_decade_primordial = 10.;
+  ppr->k_per_decade_primordial = 50.; /* ANDY default set to 10, changed */
 
   ppr->primordial_inflation_ratio_min=100.;
   ppr->primordial_inflation_ratio_max=1/50.;
