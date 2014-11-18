@@ -31,7 +31,7 @@ class main(SlikPlugin):
             l_max_tensor=3000,
             pivot_scalar=0.05,
             lensing = yes,
-            P_k_max_h/Mpc = 1.
+            P_k_max_hinvMpc = 1.
         )
 
 	#print 'setting phase template'
