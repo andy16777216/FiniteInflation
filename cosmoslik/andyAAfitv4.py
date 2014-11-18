@@ -26,7 +26,7 @@ class main(SlikPlugin):
             theta = param(0.010413),
             #omnuh2 = 0.000645,
             massive_neutrinos=0,#param( 3, .2),
-            massless_neutrinos=3.046 #param(3,.2)
+            massless_neutrinos=3.046, #param(3,.2)
             l_max_scalar=3000,
             l_max_tensor=3000,
             pivot_scalar=0.05,
