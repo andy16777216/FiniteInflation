@@ -47,14 +47,14 @@ class classy(SlikPlugin):
                  k_c,
                  alpha_exp,
                  tau,
-                 omnuh2=0, #0.006
+                 #omnuh2=0, #0.006
                  w=None,
                  r=None,
                  nrun=None,
                  omk=0,
                  Yp=None,
                  Tcmb=2.7255,
-                 massive_neutrinos=0,
+                 #massive_neutrinos=0,
                  massless_neutrinos=3.046,
                  l_max_scalar=3000,
                  l_max_tensor=3000,
