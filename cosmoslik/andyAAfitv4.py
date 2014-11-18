@@ -27,6 +27,12 @@ class main(SlikPlugin):
             omnuh2 = 0.000645,
             massive_neutrinos=1,#param( 3, .2),
             massless_neutrinos=2.046 #param(3,.2)
+            l_max_scalar=3000,
+            l_max_tensor=3000,
+            pivot_scalar=0.05,
+            lensing = yes
+            k_pivot = 0.05
+            P_k_max_h/Mpc = 1.
         )
 
 	#print 'setting phase template'
