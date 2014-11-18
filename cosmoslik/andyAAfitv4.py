@@ -24,7 +24,7 @@ class main(SlikPlugin):
             omch2 = param(0.12),
             tau = param(0.09,min=0,gaussian_prior=(0.085,0.015)),
             theta = param(0.010413),
-            #omnuh2 = 0.000645,
+            omnuh2 = 0,	#0.000645,
             massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
             l_max_scalar=3000,
