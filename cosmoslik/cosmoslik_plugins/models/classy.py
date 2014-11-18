@@ -47,7 +47,7 @@ class classy(SlikPlugin):
                  k_c,
                  alpha_exp,
                  tau,
-                 omnuh2=0, #0.006
+                 omnuh2, #0.006
                  w=None,
                  r=None,
                  nrun=None,
