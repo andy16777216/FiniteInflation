@@ -24,7 +24,7 @@ class classy(SlikPlugin):
                     'massive_neutrinos':'N_ncdm',
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
-                    'pivot_scalar':'k_pivot'
+                    'pivot_scalar':'k_pivot',
                     #'Tcmb':'T_cmb',
                     #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
                     'w':'w',
