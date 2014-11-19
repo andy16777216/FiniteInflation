@@ -30,7 +30,7 @@ class main(SlikPlugin):
             l_max_scalar=3000,
             l_max_tensor=3000,
             pivot_scalar=0.05,
-            P_k_ini type = analytic_Pk,
+            #P_k_ini type = analytic_Pk,
             lensing = 'yes'#,
             #P_k_max_hinvMpc = 1.
         )
