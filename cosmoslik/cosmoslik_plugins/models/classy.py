@@ -27,7 +27,7 @@ class classy(SlikPlugin):
                     'pivot_scalar':'k_pivot'
                     #'Tcmb':'T_cmb',
                     #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
-                    #'w':'w',
+                    'w':'w',
                     #'nrun':'alpha_s',
                     #'omk':'Omega_k',
                     #'l_max_scalar':'l_max_scalars',
