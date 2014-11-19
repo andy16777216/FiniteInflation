@@ -30,7 +30,7 @@ class main(SlikPlugin):
             l_max_scalar=3000,
             l_max_tensor=3000,
             pivot_scalar=0.05,
-            w=None,
+            w=-1,
             r=None,
             nrun=None,
             omk=0,
