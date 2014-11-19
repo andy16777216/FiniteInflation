@@ -27,7 +27,7 @@ class classy(SlikPlugin):
                     'pivot_scalar':'k_pivot',
                     #'Tcmb':'T_cmb',
                     #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
-                    'w':'w0_fld',
+                    #'w':'w0_fld',
                     #'nrun':'alpha_s',
                     #'omk':'Omega_k',
                     #'l_max_scalar':'l_max_scalars',
@@ -56,7 +56,7 @@ class classy(SlikPlugin):
                  alpha_exp,
                  tau,
                  #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
-                 w=-1.0,
+                 w,
                  r=None,
                  nrun=None,
                  omk=0,
@@ -74,6 +74,7 @@ class classy(SlikPlugin):
         
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
+                       w=-1.0,
                        l_max_scalars=l_max_scalar,
                        **{self.name_mapping[k]:v for k,v in locals().items() 
                           if k in self.name_mapping and v is not None})
