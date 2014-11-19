@@ -56,7 +56,7 @@ class classy(SlikPlugin):
                  alpha_exp,
                  tau,
                  #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
-                 w=None,
+                 w=-1.0,
                  r=None,
                  nrun=None,
                  omk=0,
