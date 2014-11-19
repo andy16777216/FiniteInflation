@@ -18,8 +18,8 @@ class main(SlikPlugin):
         self.cosmo = get_plugin('models.cosmology')(
             logA = param(3.2),
             ns = param(0.96),
-            k_c = param(-7, range = (-15,0), scale = 1),
-            alpha_exp = param(0.8, range=(0.6,0.9), scale = 0.1),
+            k_c = param(-7, scale = 1, range = (-15,0)),
+            alpha_exp = param(0.8, scale = 0.1, range=(0.6,0.9)),
             ombh2 = param(0.0221),
             omch2 = param(0.12),
             tau = param(0.09,min=0,gaussian_prior=(0.085,0.015)),
@@ -58,9 +58,9 @@ class main(SlikPlugin):
             n_Dl_cib=param(0.8,scale=0.2,gaussian_prior=(0.8,0.2)),
             cal_100=param(1,scale=0.001),
             cal_217=param(1,scale=0.001),
-            xi_sz_cib=param(0.5,range=(-1,1),scale=0.2),
+            xi_sz_cib=param(0.5,scale=0.2,range=(-1,1)),
             A_ksz=param(1,range=(0,5)),
-            Bm_1_1=param(0,gaussian_prior=(0,1),scale=1)
+            Bm_1_1=param(0,scale=1,gaussian_prior=(0,1))
         )
 
         self.lowl = get_plugin('likelihoods.clik')(
