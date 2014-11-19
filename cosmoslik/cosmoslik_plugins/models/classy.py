@@ -28,7 +28,6 @@ class classy(SlikPlugin):
                     #'Tcmb':'T_cmb',
                     #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
                     #'w':'w',
-                    #'r':'r',
                     #'nrun':'alpha_s',
                     #'omk':'Omega_k',
                     #'l_max_scalar':'l_max_scalars',
