@@ -6,10 +6,10 @@ from numpy import arange, pi
 class classy(SlikPlugin):
     """
     Plugin for CLASS.
-    Credit: Brent Follin, Teresa Hamill
+    Credit: Brent Follin, Teresa Hamill, Andy Scacco
     """
 
-    #{cosmoslik name : class name}
+    #{cosmoslik name : class name} - This needs to be done even for variables with the same name (because of for loop in self.model.set)!
     name_mapping = {'As':'A_s',
                     'ns':'n_s',
                     'r':'r',
