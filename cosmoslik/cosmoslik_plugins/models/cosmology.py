@@ -8,6 +8,8 @@ class cosmology(SlikPlugin):
                  model = '',
                  As = 2.4e-9,
                  ns = 0.96,
+                 k_c = -8.0,
+                 alpha_exp = 0.9,
                  ombh2 = 0.0225,
                  omch2 = 0.12,
                  tau = 0.09,
