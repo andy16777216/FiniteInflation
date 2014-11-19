@@ -13,8 +13,8 @@ class classy(SlikPlugin):
     name_mapping = {'As':'A_s',
                     'ns':'n_s',
                     'r':'r',
-                    'k_c':'k_c'
-                    'alpha_exp':'alpha_exp'
+                    'k_c':'k_c',
+                    'alpha_exp':'alpha_exp',
                     'nt':'n_t',
                     'ombh2':'omega_b',
                     'omch2':'omega_cdm',
