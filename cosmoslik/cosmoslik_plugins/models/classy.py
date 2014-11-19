@@ -27,10 +27,10 @@ class classy(SlikPlugin):
                     #'Tcmb':'T_cmb',
                     'pivot_scalar':'k_pivot'#,
                     #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
-                    #'w':'w0_fld',
-                    #'r':'r',
+                    'w':'w',
+                    'r':'r',
                     #'nrun':'alpha_s',
-                    #'omk':'Omega_k',
+                    'omk':'Omega_k',
                     #'l_max_scalar':'l_max_scalars',
                     #'l_max_tensor':'l_max_tensors'
                     }
