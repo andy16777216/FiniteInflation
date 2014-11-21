@@ -1,0 +1,6 @@
+To compile and link the external Pk program, use:
+
+gcc -Wall -I/usr/local/include -c example.c
+gcc -L/usr/local/lib example.o -lgsl -lgslcblas -lm
+
+where example is pkNumeric here.
