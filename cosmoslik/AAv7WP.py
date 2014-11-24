@@ -81,9 +81,9 @@ class main(SlikPlugin):
           clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/actspt_2013_01.clik'
         )
         
-        self.lens =  get_plugin('likelihoods.clik')(
-          clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lensing_likelihood_v4_ref.clik_lensing'
-        )
+        #self.lens =  get_plugin('likelihoods.clik')(
+        #  clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lensing_likelihood_v4_ref.clik_lensing'
+        #)
         
         
         # self.s12 = get_plugin('likelihoods.spt_lowl')(
@@ -150,8 +150,8 @@ class main(SlikPlugin):
                     lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result),
-                    lambda: self.actspt(self.cmb_result),
-                    lambda: self.lens(self.cmb_result)
+                    lambda: self.actspt(self.cmb_result)
+                    #lambda: self.lens(self.cmb_result)
                     )
 
 
