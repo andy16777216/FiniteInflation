@@ -127,8 +127,8 @@ class main(SlikPlugin):
         #self.cosmo.neff_phase = self.amp_to_neff()
         #self.cosmo.leq = 125
 	    #print 'getting cmb'
-        self.cmb_result = self.get_cmb(force = True, outputs=['cl_TT'],**self.cosmo)
-        #self.cl_TT = self.cmb_result['cl_TT']
+        self.cmb_result = self.get_cmb(force = True, outputs=['cl_TT','cl_TE','cl_EE','cl_BB','cl_PP','cl_TP'],**self.cosmo)
+        self.cl_TT = self.cmb_result['cl_TT']
         self.cl_TT2 = self.cl_TT[2]
         self.cl_TT3 = self.cl_TT[3]
         self.cl_TT4 = self.cl_TT[4]
