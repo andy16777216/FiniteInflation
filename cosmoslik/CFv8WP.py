@@ -21,7 +21,7 @@ class main(SlikPlugin):
             k_c = param(-8, scale = 1, range = (-13,-5)),
             ombh2 = param(0.0221),
             omch2 = param(0.12),
-            tau = param(0.09,min=0),
+            tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             alpha_exp = 3.35,
             #omnuh2 = 0,	#0.000645,
