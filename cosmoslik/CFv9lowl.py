@@ -27,8 +27,8 @@ class main(SlikPlugin):
             #omnuh2 = 0,	#0.000645,
             #massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
-            l_max_scalar=800,  #These variables are not set here, but in classy.py, must be edited there!!
-            l_max_tensor=800,
+            l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
+            l_max_tensor=3000,
             pivot_scalar=0.05,
             w=-1.0,
             r=None,
@@ -51,23 +51,23 @@ class main(SlikPlugin):
         #if 'mnu' in model: self.cosmo.omnuh2 = param(0,0.001,range=(0,1))
 
 	#print 'loading likelihoods'
-        self.camspec = get_plugin('likelihoods.clik')(
-            clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
-            A_ps_100=param(150,min=0),
-            A_ps_143=param(60,min=0),
-            A_ps_217=param(60,min=0),
-            A_cib_143=param(10,min=0),
-            A_cib_217=param(40,min=0),
-            A_sz=param(5,scale=1,range=(0,20)),
-            r_ps=param(0.7,range=(0,1)),
-            r_cib=param(0.7,range=(0,1)),
-            n_Dl_cib=param(0.8,scale=0.2,gaussian_prior=(0.8,0.2)),
-            cal_100=param(1,scale=0.001),
-            cal_217=param(1,scale=0.001),
-            xi_sz_cib=param(0.5,scale=0.2,range=(-1,1)),
-            A_ksz=param(1,range=(0,5)),
-            Bm_1_1=param(0,scale=1,gaussian_prior=(0,1))
-        )
+#        self.camspec = get_plugin('likelihoods.clik')(
+ #           clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
+  #          A_ps_100=param(150,min=0),
+  #          A_ps_143=param(60,min=0),
+  #          A_ps_217=param(60,min=0),
+  #          A_cib_143=param(10,min=0),
+  #          A_cib_217=param(40,min=0),
+  #          A_sz=param(5,scale=1,range=(0,20)),
+  #          r_ps=param(0.7,range=(0,1)),
+  #          r_cib=param(0.7,range=(0,1)),
+  #          n_Dl_cib=param(0.8,scale=0.2,gaussian_prior=(0.8,0.2)),
+  #          cal_100=param(1,scale=0.001),
+   #         cal_217=param(1,scale=0.001),
+   #         xi_sz_cib=param(0.5,scale=0.2,range=(-1,1)),
+    #        A_ksz=param(1,range=(0,5)),
+     #       Bm_1_1=param(0,scale=1,gaussian_prior=(0,1))
+     #   )
 
         self.lowl = get_plugin('likelihoods.clik')(
           clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/commander_v4.1_lm49.clik'
@@ -144,7 +144,7 @@ class main(SlikPlugin):
         self.cl_TT500 = self.cl_TT[500]
         
         return lsum(lambda: self.priors(self),
-                    lambda: self.camspec(self.cmb_result),
+                    #lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
                     #lambda: self.pol(self.cmb_result)
                     #lambda: self.actspt(self.cmb_result)
