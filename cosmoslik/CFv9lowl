@@ -27,7 +27,7 @@ class main(SlikPlugin):
             #omnuh2 = 0,	#0.000645,
             #massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
-            l_max_scalar=800,
+            l_max_scalar=800,  #These variables are not set here, but in classy.py, must be edited there!!
             l_max_tensor=800,
             pivot_scalar=0.05,
             w=-1.0,
