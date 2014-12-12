@@ -64,8 +64,8 @@ class classy(SlikPlugin):
                  Tcmb=2.7255,
                  #massive_neutrinos=0,
                  massless_neutrinos=3.046,
-                 l_max_scalar=800,
-                 l_max_tensor=800,
+                 l_max_scalar=3000,
+                 l_max_tensor=3000,
                  pivot_scalar=0.05,
                  outputs=[],
                  **kwargs):
