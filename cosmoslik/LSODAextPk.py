@@ -18,12 +18,14 @@ class main(SlikPlugin):
         self.cosmo = get_plugin('models.cosmology')(
             logA = param(3.2),
             ns = param(0.96),
-            k_c = param(-8, scale = 1, range = (-13,-5)),
+            #k_c = param(-8, scale = 1, range = (-13,-5)),
             ombh2 = param(0.0221),
             omch2 = param(0.12),
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
-            alpha_exp = 3.35,
+            #alpha_exp = 3.35,
+            m6 = param(1.4, scale = 0.3, range = (1,2)),
+            phi0 = param(-20.5, scale = 1, range = (-21.5,-19.5)),
             #omnuh2 = 0,	#0.000645,
             #massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
@@ -42,9 +44,9 @@ class main(SlikPlugin):
         )
 
 #P_k_ini type = external_Pk
-#command = ~/LSODA/pk
-#custom1 = -20.5
-#custom2 = 1.4e-6
+#command = ../LSODA/pk
+#custom1 = phi0
+#custom2 = m6*1e-6
 
 
 	#print 'setting phase template'
@@ -104,7 +106,7 @@ class main(SlikPlugin):
         #  )
     	#print 'loading cosmology'
 
-        self.get_cmb = get_plugin('models.classy')()
+        self.get_cmb = get_plugin('models.classyLSODA')()
 
 	#print 'loading derivers'
         self.bbn = get_plugin('models.bbn_consistency')()
@@ -114,7 +116,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=1000000,
+             num_samples=10,
              output_file='chains/CFv8WP.chain',
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
