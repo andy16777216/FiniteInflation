@@ -49,11 +49,11 @@ class classy(SlikPlugin):
                  ombh2,
                  omch2,
                  H0,
+                 tau,
                  As = None,
                  ns = None,
                  k_c = None,
                  alpha_exp = None,
-                 tau,
                  #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
                  w=None,
                  r=None,
