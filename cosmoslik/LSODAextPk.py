@@ -106,7 +106,7 @@ class main(SlikPlugin):
         #  )
     	#print 'loading cosmology'
 
-        self.get_cmb = get_plugin('models.classyLSODA')()
+        self.get_cmb = get_plugin('models.classy')()
 
 	#print 'loading derivers'
         self.bbn = get_plugin('models.bbn_consistency')()
