@@ -49,9 +49,9 @@ class classy(SlikPlugin):
                  ombh2,
                  omch2,
                  H0,
-                 custom1,
+#                 custom1,
                  ns,
-                 custom2,
+#                 custom2,
                  tau,
                  #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
                  w=None,
