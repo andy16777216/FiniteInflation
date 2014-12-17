@@ -127,8 +127,8 @@ class main(SlikPlugin):
 
         
     def __call__(self):
-    	self.custom1 = phi0,
-        self.custom2 = m6*1e-6,
+    	self.cosmo.custom1 = self.cosmo.phi0,
+        self.cosmo.custom2 = (self.cosmo.m6)*1e-6,
         self.cosmo.As = exp(self.cosmo.logA)*1e-10
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
