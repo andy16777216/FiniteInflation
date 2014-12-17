@@ -42,10 +42,9 @@ class main(SlikPlugin):
         )
 
 #P_k_ini type = external_Pk
-#command = /path/to/CLASS/external_Pk/generate_Pk_example.py
-#custom1 = 0.05
-#custom2 = 2.2e-9
-#custom3 = 1.
+#command = ~/LSODA/pk
+#custom1 = -20.5
+#custom2 = 1.4e-6
 
 
 	#print 'setting phase template'
