@@ -117,16 +117,18 @@ class main(SlikPlugin):
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
              num_samples=10,
-             output_file='chains/CFv8WP.chain',
+             output_file='chains/LSODA1.chain',
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
              #print_level=0,
-             output_extra_params=['cosmo.Yp','cosmo.H0','cosmo.kcactual','cosmo.alphaactual','cl_TT2','cl_TT3','cl_TT4','cl_TT5','cl_TT6','cl_TT7','cl_TT8','cl_TT20','cl_TT40','cl_TT80','cl_TT120','cl_TT200','cl_TT500','cl_TT1000','cl_TT2000','cl_TT2999']
+             output_extra_params=['cosmo.Yp','cosmo.H0','cl_TT2','cl_TT3','cl_TT4','cl_TT5','cl_TT6','cl_TT7','cl_TT8','cl_TT20','cl_TT40','cl_TT80','cl_TT120','cl_TT200','cl_TT500','cl_TT1000','cl_TT2000','cl_TT2999']
 	)
 
 
         
     def __call__(self):
+    	self.custom1 = phi0,
+        self.custom2 = m6*1e-6,
         self.cosmo.As = exp(self.cosmo.logA)*1e-10
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
