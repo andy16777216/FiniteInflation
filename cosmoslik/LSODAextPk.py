@@ -41,6 +41,13 @@ class main(SlikPlugin):
             #P_k_max_hinvMpc = 1.
         )
 
+#P_k_ini type = external_Pk
+#command = /path/to/CLASS/external_Pk/generate_Pk_example.py
+#custom1 = 0.05
+#custom2 = 2.2e-9
+#custom3 = 1.
+
+
 	#print 'setting phase template'
         #self.phase_template = SlikDict()
         #self.phase_template.alpha = 5.5
