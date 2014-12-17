@@ -16,8 +16,8 @@ class main(SlikPlugin):
         super(SlikPlugin,self).__init__()
 
         self.cosmo = get_plugin('models.cosmology')(
-            logA = param(3.2),
-            ns = param(0.96),
+            #logA = param(3.2),
+            #ns = param(0.96),
             #k_c = param(-8, scale = 1, range = (-13,-5)),
             ombh2 = param(0.0221),
             omch2 = param(0.12),
