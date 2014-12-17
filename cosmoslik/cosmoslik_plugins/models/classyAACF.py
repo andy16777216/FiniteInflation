@@ -2,7 +2,6 @@ from __future__ import absolute_import
 from cosmoslik import SlikPlugin
 from numpy import arange, pi
 
-
 class classy(SlikPlugin):
     """
     Plugin for CLASS.
