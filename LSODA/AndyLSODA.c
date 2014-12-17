@@ -2831,7 +2831,7 @@ int main(int argc, char *argv[])
 //  double m = 0.0000014;
 
   double phi0 = atof(argv[1]);
-  double m = atof(argv[2]);
+  double m = 1e-6*atof(argv[2]);
 
   double a0 = 1.0;
   double phip0 = -100*m*phi0;
