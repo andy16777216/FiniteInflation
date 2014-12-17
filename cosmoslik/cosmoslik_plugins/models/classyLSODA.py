@@ -13,8 +13,8 @@ class classy(SlikPlugin):
     name_mapping = {'As':'A_s',
                     'ns':'n_s',
                     'r':'r',
-                    'k_c':'k_c',
-                    'alpha_exp':'alpha_exp',
+                    'custom1':'custom1',
+                    'custom2':'custom2',
                     'nt':'n_t',
                     'ombh2':'omega_b',
                     'omch2':'omega_cdm',
@@ -50,10 +50,9 @@ class classy(SlikPlugin):
                  ombh2,
                  omch2,
                  H0,
-                 phi0,
+                 custom1,
                  ns,
-                 m6,
-                 alpha_exp,
+                 custom2,
                  tau,
                  #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
                  w=None,
@@ -71,16 +70,14 @@ class classy(SlikPlugin):
                  **kwargs):
 
 
-        
+        d={self.name_mapping[k]:v for k,v in locals().items() 
+                          if k in self.name_mapping and v is not None}
+        d['P_k_ini type']='external_Pk'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
-                       P_k_ini type = 'external_Pk',
                        command = '../LSODA/pk',
-                       custom1 = phi0,
-                       custom2 = m6*1e-6,
-                       **{self.name_mapping[k]:v for k,v in locals().items() 
-                          if k in self.name_mapping and v is not None})
+                       **d)
         self.model.compute()
 
         ell = arange(l_max_scalar+1)
