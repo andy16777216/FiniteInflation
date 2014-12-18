@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from cosmoslik import SlikPlugin
 from numpy import arange, pi
 
+from cosmoslik import *
+
 class classy(SlikPlugin):
     """
     Plugin for CLASS.
@@ -77,8 +79,8 @@ class classy(SlikPlugin):
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
                        command = '../LSODA/pk',
-                       custom1 = -20.5,
-                       custom2 = 1.4,
+                       custom1 = param(-20.5, scale = 1, range = (-20.6,-20.2)),
+                       custom2 = param(1.4, scale = 0.3, range = (1,2)),
                        **d)
         self.model.compute()
 
