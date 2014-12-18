@@ -2932,6 +2932,11 @@ double logk = kmin;
 double tkh = t2/2.;
 double kperdecade = 10;
 
+const int PkLength = (int)((kmax-kmin)*100);
+double Pk[PkLength][2];
+int PkIter = 0;
+int PkLoop = 0;
+
 while (logk < kmax){
 	t = 0.0E0;
 	iwork1 = iwork2 = iwork5 = iwork6 = iwork7 = iwork8 = iwork9 = 0;
@@ -2981,8 +2986,15 @@ while (logk < kmax){
 		}
 //		tout = tout * 10.0E0;
 //	}
-	printf("%18.15e %18.15e\n", k*kf, k*k*k*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3])));
+//	printf("%20.17e %20.17e\n", k*kf, k*k*k*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3])));
+	Pk[PkIter][0] = k*kf;
+	Pk[PkIter][1] = k*k*k*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3]));
+	PkIter++;
 }
+for (PkLoop = 0; PkLoop < PkIter; PkLoop ++){
+	printf("%20.17e %20.17e\n", Pk[PkLoop][0], Pk[PkLoop][1]);
+}
+
 	n_lsoda_terminate();
 
 	return 0;
