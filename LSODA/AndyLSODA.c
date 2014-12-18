@@ -877,7 +877,7 @@ lsoda(f, neq, y, t, tout, itol, rtol, atol, itask, istate,
 
 
 {
-	int             mxstp0 = 5000000, mxhnl0 = 10; //ANDY
+	int             mxstp0 = 50000000, mxhnl0 = 10; //ANDY
 
 	int             i, iflag, lenyh, ihit;
 	double          atoli, ayi, big, h0, hmax, hmx, rh, rtoli, tcrit, tdist, tnext, tol,

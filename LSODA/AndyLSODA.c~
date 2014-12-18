@@ -2992,7 +2992,7 @@ while (logk < kmax){
 	PkIter++;
 }
 for (PkLoop = 0; PkLoop < PkIter; PkLoop ++){
-	printf("%22.19e %22.19e\n", Pk[PkLoop][0], Pk[PkLoop][1]);
+	printf("%20.17e %20.17e\n", Pk[PkLoop][0], Pk[PkLoop][1]);
 }
 
 	n_lsoda_terminate();
