@@ -52,6 +52,8 @@ class classy(SlikPlugin):
                  omch2,
                  H0,
                  tau,
+                 phi0,
+                 m6,
                  As = None,
                  ns = None,
                  k_c = None,
