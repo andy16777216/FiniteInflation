@@ -24,7 +24,7 @@ class main(SlikPlugin):
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             #alpha_exp = 3.35,
-            phi0 = param(-20.5, scale = 1, range = (-20.6,-20.2)),
+            phi0 = param(-20.5, scale = 1, range = (-21.5,-19.5)),
             m6 = param(1.4, scale = 0.3, range = (1,2)),
             #phi0 = -20.5,
             #m6 = 1.4,
@@ -118,7 +118,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=100,
+             num_samples=1000000,
              output_file='chains/LSODA1.chain',
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
