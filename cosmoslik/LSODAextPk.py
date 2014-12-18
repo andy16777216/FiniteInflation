@@ -24,8 +24,10 @@ class main(SlikPlugin):
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             #alpha_exp = 3.35,
-            phi0 = param(-20.5, scale = 1, range = (-20.6,-20.2)),
-            m6 = param(1.4, scale = 0.3, range = (1,2)),
+            #phi0 = param(-20.5, scale = 1, range = (-20.6,-20.2)),
+            #m6 = param(1.4, scale = 0.3, range = (1,2)),
+            phi0 = -20.5,
+            m6 = 1.4,
             #omnuh2 = 0,	#0.000645,
             #massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
