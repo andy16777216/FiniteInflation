@@ -14,8 +14,6 @@ class classy(SlikPlugin):
     name_mapping = {#'As':'A_s',
                     #'ns':'n_s',
                     'r':'r',
-                    #'phi0':'custom1',
-                    #'m6':'custom2',
                     'nt':'n_t',
                     'ombh2':'omega_b',
                     'omch2':'omega_cdm',
@@ -33,6 +31,8 @@ class classy(SlikPlugin):
                     #'omk':'Omega_k',
                     #'l_max_scalar':'l_max_scalars',
                     #'l_max_tensor':'l_max_tensors'
+                    'phi0':'custom1',
+                    'm6':'custom2'
                     }
 
 
@@ -79,8 +79,8 @@ class classy(SlikPlugin):
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
                        command = '../LSODA/pk',
-                       custom1 = param(-20.5, scale = 1, range = (-20.6,-20.2)),
-                       custom2 = param(1.4, scale = 0.3, range = (1,2)),
+                       #custom1 = phi0
+                       #custom2 = m6,
                        **d)
         self.model.compute()
 
