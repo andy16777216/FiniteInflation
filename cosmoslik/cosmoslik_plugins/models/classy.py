@@ -9,8 +9,8 @@ class classy(SlikPlugin):
     """
 
     #{cosmoslik name : class name} - This needs to be done even for variables with the same name (because of for loop in self.model.set)!
-    name_mapping = {'As':'A_s',
-                    'ns':'n_s',
+    name_mapping = {#'As':'A_s',
+                    #'ns':'n_s',
                     'r':'r',
                     'phi0':'custom1',
                     'm6':'custom2',
