@@ -129,11 +129,11 @@ class main(SlikPlugin):
     def __call__(self):
 #    	self.cosmo.custom1 = self.cosmo.phi0,
  #       self.cosmo.custom2 = (self.cosmo.m6)*1e-6,
-        self.cosmo.As = exp(self.cosmo.logA)*1e-10
+#        self.cosmo.As = exp(self.cosmo.logA)*1e-10
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
-        self.cosmo.kcactual = exp(self.cosmo.k_c)
-        self.cosmo.alphaactual = 1./(1.-self.cosmo.alpha_exp)-1.
+#        self.cosmo.kcactual = exp(self.cosmo.k_c)
+#        self.cosmo.alphaactual = 1./(1.-self.cosmo.alpha_exp)-1.
         #self.cosmo.neff_phase = self.amp_to_neff()
         #self.cosmo.leq = 125
 	    #print 'getting cmb'
