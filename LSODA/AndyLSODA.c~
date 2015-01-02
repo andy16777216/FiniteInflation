@@ -1,4 +1,6 @@
 /*
+  Code for LSODA modified for finite inflation differential equation solving.
+  
   This is a C version of the LSODA library. I acquired the original
   source code from this web page:
 
@@ -877,7 +879,7 @@ lsoda(f, neq, y, t, tout, itol, rtol, atol, itask, istate,
 
 
 {
-	int             mxstp0 = 5000000, mxhnl0 = 10; //ANDY
+	int             mxstp0 = 50000000, mxhnl0 = 10; //ANDY
 
 	int             i, iflag, lenyh, ihit;
 	double          atoli, ayi, big, h0, hmax, hmx, rh, rtoli, tcrit, tdist, tnext, tol,
@@ -2982,6 +2984,7 @@ while (logk < kmax){
 //		printf(" at t= %11.3e y= %13.5e %13.5e %13.5e %13.6e\n", t, z[1], z[2], z[3], k*k*k*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3])));
 		if (istate <= 0) {
 			printf("error istate = %d\n", istate);
+			printf("phi0 = %10.7e, m = %10.7e\n", phi0, m);
 			exit(0);
 		}
 //		tout = tout * 10.0E0;
