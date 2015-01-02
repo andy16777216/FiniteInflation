@@ -2832,7 +2832,7 @@ int main(int argc, char *argv[])
 //  double phi0 = -20.5;
 //  double m = 0.0000014;
 
-  double phi0 = atof(argv[1]);
+  double phi0 = -1.0*atof(argv[1]);
   double m = 1e-6*atof(argv[2]);
 
   double a0 = 1.0;
