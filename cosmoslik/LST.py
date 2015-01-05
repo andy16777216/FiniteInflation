@@ -42,6 +42,7 @@ class main(SlikPlugin):
             omk=0,
             Yp=None,
             Tcmb=2.7255,
+            modes = 's,t',
             #P_k_ini type = analytic_Pk,
             lensing = 'yes'#,
             #P_k_max_hinvMpc = 1.
