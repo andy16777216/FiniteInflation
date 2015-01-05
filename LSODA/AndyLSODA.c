@@ -1,4 +1,7 @@
 /*
+
+USES the Lyth and Liddle P(k) = R^2/(2 Pi^2)
+
   Code for LSODA modified for finite inflation differential equation solving.
   
   This is a C version of the LSODA library. I acquired the original
@@ -2991,7 +2994,7 @@ while (logk < kmax){
 //	}
 //	printf("%20.17e %20.17e\n", k*kf, k*k*k*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3])));
 	Pk[PkIter][0] = k*kf;
-	Pk[PkIter][1] = k*k*k*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3]));
+	Pk[PkIter][1] = k*k*k/2.0/Pi/Pi*(z[4]*z[4] + z[6]*z[6])*((m*m*z[1]*z[1] + z[2]*z[2])/(6.0*z[2]*z[2]*z[3]*z[3]));
 	PkIter++;
 }
 for (PkLoop = 0; PkLoop < PkIter; PkLoop ++){
