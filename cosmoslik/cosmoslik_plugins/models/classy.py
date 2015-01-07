@@ -80,7 +80,7 @@ class classy(SlikPlugin):
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
-                       command = '../LSODA/pk',
+                       command = '../LSODAtesnors/pk',
                        #custom1 = phi0
                        #custom2 = m6,
                        **d)
