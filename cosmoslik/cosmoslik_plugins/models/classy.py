@@ -30,7 +30,7 @@ class classy(SlikPlugin):
                     #'nrun':'alpha_s',
                     #'omk':'Omega_k',
                     #'l_max_scalar':'l_max_scalars',
-                    'l_max_tensor':'l_max_tensors',
+                    #'l_max_tensor':'l_max_tensors',
                     'phi0':'custom1',
                     'm6':'custom2',
                     'modes':'modes',
@@ -82,7 +82,7 @@ class classy(SlikPlugin):
         self.model.set(output='tCl, lCl, pCl',
                        #lensing='yes',
                        l_max_scalars=l_max_scalar,
-                       #l_max_tensors=l_max_tensor,
+                       l_max_tensors=l_max_tensor,
                        command = '../LSODAtesnors/pk',
                        #custom1 = phi0
                        #custom2 = m6,
