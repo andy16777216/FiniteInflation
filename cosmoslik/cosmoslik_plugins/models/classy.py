@@ -80,8 +80,8 @@ class classy(SlikPlugin):
                           if k in self.name_mapping and v is not None}
         d['P_k_ini type']='external_Pk'
         self.model.set(output='tCl, lCl, pCl',
-                       lensing='yes',
-                       l_max_scalars=l_max_scalar,
+                       #lensing='yes',
+                       #l_max_scalars=l_max_scalar,
                        command = '../LSODAtesnors/pk',
                        #custom1 = phi0
                        #custom2 = m6,
