@@ -38,7 +38,7 @@ class main(SlikPlugin):
             pivot_scalar=0.05,
             w=-1.0,
             #r=None,
-            nrun=None,
+            #nrun=None,
             omk=0,
             Yp=None,
             Tcmb=2.7255,
