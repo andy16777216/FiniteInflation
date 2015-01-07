@@ -120,7 +120,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=1000000,
+             num_samples=100,
              output_file='chains/LSODA2.chain',
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
