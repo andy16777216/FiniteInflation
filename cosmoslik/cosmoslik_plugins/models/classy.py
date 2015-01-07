@@ -32,9 +32,9 @@ class classy(SlikPlugin):
                     #'l_max_scalar':'l_max_scalars',
                     #'l_max_tensor':'l_max_tensors',
                     'phi0':'custom1',
-                    'm6':'custom2',
-                    'modes':'modes',
-                    'lensing':'lensing'
+                    'm6':'custom2'#,
+                    #'modes':'modes',
+                    #'lensing':'lensing'
                     }
 
 
@@ -81,6 +81,7 @@ class classy(SlikPlugin):
         d['P_k_ini type']='external_Pk'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
+                       modes = 's,t',
                        l_max_scalars=l_max_scalar,
                        l_max_tensors=l_max_tensor,
                        command = '../LSODAtesnors/pk',
