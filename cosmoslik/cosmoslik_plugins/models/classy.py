@@ -70,7 +70,7 @@ class classy(SlikPlugin):
                  #massive_neutrinos=0,
                  massless_neutrinos=3.046,
                  l_max_scalar=3000,
-                 l_max_tensor=3000,
+                 l_max_tensor=500,
                  pivot_scalar=0.05,
                  outputs=[],
                  **kwargs):
