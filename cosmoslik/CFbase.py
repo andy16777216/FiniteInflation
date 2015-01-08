@@ -24,8 +24,6 @@ class main(SlikPlugin):
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             alpha_exp = 3.35,
-            #omnuh2 = 0,	#0.000645,
-            #massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
             l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
             l_max_tensor=3000,
@@ -36,66 +34,36 @@ class main(SlikPlugin):
             omk=0,
             Yp=None,
             Tcmb=2.7255,
-            #P_k_ini type = analytic_Pk,
             lensing = 'yes'#,
-            #P_k_max_hinvMpc = 1.
         )
 
-	#print 'setting phase template'
-        #self.phase_template = SlikDict()
-        #self.phase_template.alpha = 5.5
-        #self.phase_template.A = 8.43
-        #self.phase_template.B = 6.5e-4
-        #if 'neff' in model: self.cosmo.massless_neutrinos = param(3,.2)
-        #if 'yp' in model: self.cosmo.Yp = param(.24,0.1)
-        #if 'mnu' in model: self.cosmo.omnuh2 = param(0,0.001,range=(0,1))
-
 	#print 'loading likelihoods'
-#        self.camspec = get_plugin('likelihoods.clik')(
- #           clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
-  #          A_ps_100=param(150,min=0),
-  #          A_ps_143=param(60,min=0),
-  #          A_ps_217=param(60,min=0),
-  #          A_cib_143=param(10,min=0),
-  #          A_cib_217=param(40,min=0),
-  #          A_sz=param(5,scale=1,range=(0,20)),
-  #          r_ps=param(0.7,range=(0,1)),
-  #          r_cib=param(0.7,range=(0,1)),
-  #          n_Dl_cib=param(0.8,scale=0.2,gaussian_prior=(0.8,0.2)),
-  #          cal_100=param(1,scale=0.001),
-   #         cal_217=param(1,scale=0.001),
-   #         xi_sz_cib=param(0.5,scale=0.2,range=(-1,1)),
-    #        A_ksz=param(1,range=(0,5)),
-     #       Bm_1_1=param(0,scale=1,gaussian_prior=(0,1))
-     #   )
+        self.camspec = get_plugin('likelihoods.clik')(
+            clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
+            A_ps_100=param(150,min=0),
+            A_ps_143=param(60,min=0),
+            A_ps_217=param(60,min=0),
+            A_cib_143=param(10,min=0),
+            A_cib_217=param(40,min=0),
+            A_sz=param(5,scale=1,range=(0,20)),
+            r_ps=param(0.7,range=(0,1)),
+            r_cib=param(0.7,range=(0,1)),
+            n_Dl_cib=param(0.8,scale=0.2,gaussian_prior=(0.8,0.2)),
+            cal_100=param(1,scale=0.001),
+            cal_217=param(1,scale=0.001),
+            xi_sz_cib=param(0.5,scale=0.2,range=(-1,1)),
+            A_ksz=param(1,range=(0,5)),
+            Bm_1_1=param(0,scale=1,gaussian_prior=(0,1))
+        )
 
         self.lowl = get_plugin('likelihoods.clik')(
           clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/commander_v4.1_lm49.clik'
         )
         
-#        self.pol = get_plugin('likelihoods.clik')(
- #         clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lowlike_v222.clik'
-  #      )
-        
-        #self.actspt =  get_plugin('likelihoods.clik')(
-        #  clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/actspt_2013_01.clik'
-        #)
-        
-        #self.lens =  get_plugin('likelihoods.clik')(
-        #  clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lensing_likelihood_v4_ref.clik_lensing'
-        #)
-        
-        
-        # self.s12 = get_plugin('likelihoods.spt_lowl')(
-        #          which='s12',
-        #          cal = param(1,0.02),
-        #          fgs = get_plugin('models.clust_poisson_egfs')
-        #                  (
-        #                              Aps = param(10,10,min=0),
-        #                              Acib = param(10,10,min=0),
-        #                              ncib = 0.8
-        #                  )
-        #  )
+        self.pol = get_plugin('likelihoods.clik')(
+          clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lowlike_v222.clik'
+        )
+
     	#print 'loading cosmology'
 
         self.get_cmb = get_plugin('models.classy')()
@@ -124,8 +92,6 @@ class main(SlikPlugin):
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
         self.cosmo.kcactual = exp(self.cosmo.k_c)
         self.cosmo.alphaactual = 1./(1.-self.cosmo.alpha_exp)-1.
-        #self.cosmo.neff_phase = self.amp_to_neff()
-        #self.cosmo.leq = 125
 	    #print 'getting cmb'
         self.cmb_result = self.get_cmb(force = True, outputs=['cl_TT','cl_TE','cl_EE','cl_BB','cl_PP','cl_TP'],**self.cosmo)
         self.cl_TT = self.cmb_result['cl_TT']
@@ -144,11 +110,9 @@ class main(SlikPlugin):
         self.cl_TT500 = self.cl_TT[500]
         
         return lsum(lambda: self.priors(self),
-                    #lambda: self.camspec(self.cmb_result),
+                    lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
-                    #lambda: self.pol(self.cmb_result)
-                    #lambda: self.actspt(self.cmb_result)
-                    #lambda: self.lens(self.cmb_result)
+                    lambda: self.pol(self.cmb_result)
                     )
 
 
