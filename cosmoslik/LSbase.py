@@ -21,7 +21,7 @@ class main(SlikPlugin):
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             phi0 = param(20.5, scale = 0.1, range = (19.7,21.3)),
-            m6 = param(1.4, scale = 0.1, range = (5.0, 7.0)),
+            m6 = param(6.0, scale = 0.1, range = (5.0, 7.0)),
             logA = None,
             As = None,
             ns = None,
