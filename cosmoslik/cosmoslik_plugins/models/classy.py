@@ -12,8 +12,8 @@ class classy(SlikPlugin):
     name_mapping = {'As':'A_s',
                     'ns':'n_s',
                     'r':'r',
-                    'k_c':'k_c',
-                    'alpha_exp':'alpha_exp',
+                    'phi0':'custom1',
+                    'm6':'custom2',
                     'nt':'n_t',
                     'ombh2':'omega_b',
                     'omch2':'omega_cdm',
@@ -44,8 +44,8 @@ class classy(SlikPlugin):
                  H0,
                  As,
                  ns,
-                 k_c,
-                 alpha_exp,
+                 phi0,
+                 m6,
                  tau,
                  w=None,
                  r=None,
@@ -60,13 +60,14 @@ class classy(SlikPlugin):
                  outputs=[],
                  **kwargs):
 
-
-        
+        d={self.name_mapping[k]:v for k,v in locals().items() 
+        if k in self.name_mapping and v is not None}
+        d['P_k_ini type']='external_Pk'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
-                       **{self.name_mapping[k]:v for k,v in locals().items() 
-                          if k in self.name_mapping and v is not None})
+                       command = '../LSODA/pk',
+                       **d)
         self.model.compute()
 
         ell = arange(l_max_scalar+1)
