@@ -34,7 +34,7 @@ class main(SlikPlugin):
             #massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
             l_max_scalar=3000,
-            l_max_tensor=3000,
+            l_max_tensor=500,
             pivot_scalar=0.05,
             w=-1.0,
             r=None,
