@@ -63,10 +63,11 @@ class classy(SlikPlugin):
         d={self.name_mapping[k]:v for k,v in locals().items() 
         if k in self.name_mapping and v is not None}
         d['P_k_ini type']='external_Pk'
+        d['modes'] = 's,t'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
-                       command = '../LSODA/pk',
+                       command = '../LSODAtesnors/pk',
                        **d)
         self.model.compute()
 
