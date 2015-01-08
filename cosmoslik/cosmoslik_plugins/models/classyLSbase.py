@@ -60,15 +60,16 @@ class classy(SlikPlugin):
                  outputs=[],
                  **kwargs):
 
-
-        
+        d={self.name_mapping[k]:v for k,v in locals().items() 
+        if k in self.name_mapping and v is not None}
+        d['P_k_ini type']='external_Pk'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
                        l_max_scalars=l_max_scalar,
-                       **{self.name_mapping[k]:v for k,v in locals().items() 
-                          if k in self.name_mapping and v is not None})
+                       command = '../LSODA/pk',
+                       **d)
         self.model.compute()
-
+        
         ell = arange(l_max_scalar+1)
         self.cmb_result = {'cl_%s'%x:(self.model.lensed_cl(l_max_scalar)[x.lower()])*Tcmb**2*1e12*ell*(ell+1)/2/pi
                            for x in ['TT','TE','EE','BB','PP','TP']}
