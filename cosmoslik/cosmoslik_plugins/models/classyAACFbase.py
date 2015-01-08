@@ -24,13 +24,6 @@ class classy(SlikPlugin):
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
-                    #'Tcmb':'T_cmb',
-                    #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
-                    #'w':'w0_fld',
-                    #'nrun':'alpha_s',
-                    #'omk':'Omega_k',
-                    #'l_max_scalar':'l_max_scalars',
-                    #'l_max_tensor':'l_max_tensors'
                     }
 
 
@@ -54,14 +47,12 @@ class classy(SlikPlugin):
                  k_c,
                  alpha_exp,
                  tau,
-                 #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
                  w=None,
                  r=None,
                  nrun=None,
                  omk=0,
                  Yp=None,
                  Tcmb=2.7255,
-                 #massive_neutrinos=0,
                  massless_neutrinos=3.046,
                  l_max_scalar=3000,
                  l_max_tensor=3000,
