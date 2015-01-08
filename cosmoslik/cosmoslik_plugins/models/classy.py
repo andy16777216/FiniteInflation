@@ -2,8 +2,6 @@ from __future__ import absolute_import
 from cosmoslik import SlikPlugin
 from numpy import arange, pi
 
-from cosmoslik import *
-
 class classy(SlikPlugin):
     """
     Plugin for CLASS.
@@ -11,10 +9,12 @@ class classy(SlikPlugin):
     """
 
     #{cosmoslik name : class name} - This needs to be done even for variables with the same name (because of for loop in self.model.set)!
-    name_mapping = {#'As':'A_s',
-                    #'ns':'n_s',
-                    #'r':'r',
-                    #'nt':'n_t',
+    name_mapping = {'As':'A_s',
+                    'ns':'n_s',
+                    'r':'r',
+                    'phi0':'custom1',
+                    'm6':'custom2',
+                    'nt':'n_t',
                     'ombh2':'omega_b',
                     'omch2':'omega_cdm',
                     'omnuh2':'omega_ncdm',
@@ -24,17 +24,6 @@ class classy(SlikPlugin):
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
-                    #'Tcmb':'T_cmb',
-                    #'P_k_max_hinvMpc':'P_k_max_h/Mpc'
-                    #'w':'w0_fld',
-                    #'nrun':'alpha_s',
-                    #'omk':'Omega_k',
-                    #'l_max_scalar':'l_max_scalars',
-                    #'l_max_tensor':'l_max_tensors',
-                    'phi0':'custom1',
-                    'm6':'custom2'#,
-                    #'modes':'modes',
-                    #'lensing':'lensing'
                     }
 
 
@@ -53,41 +42,31 @@ class classy(SlikPlugin):
                  ombh2,
                  omch2,
                  H0,
-                 tau,
+                 As,
+                 ns,
                  phi0,
                  m6,
-                 As = None,
-                 ns = None,
-                 k_c = None,
-                 alpha_exp = None,
-                 #omnuh2=0, #0.006  #None means that Class will take the default for this, maybe?
+                 tau,
                  w=None,
                  r=None,
                  nrun=None,
                  omk=0,
                  Yp=None,
                  Tcmb=2.7255,
-                 #massive_neutrinos=0,
                  massless_neutrinos=3.046,
                  l_max_scalar=3000,
-                 l_max_tensor=500,
+                 l_max_tensor=3000,
                  pivot_scalar=0.05,
                  outputs=[],
                  **kwargs):
 
-
         d={self.name_mapping[k]:v for k,v in locals().items() 
-                          if k in self.name_mapping and v is not None}
+        if k in self.name_mapping and v is not None}
         d['P_k_ini type']='external_Pk'
-        d['tensor method'] = 'massless'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
-                       modes = 's,t',
                        l_max_scalars=l_max_scalar,
-                       l_max_tensors=l_max_tensor,
-                       command = '../LSODAtesnors/pk',
-                       #custom1 = phi0
-                       #custom2 = m6,
+                       command = '../LSODA/pk',
                        **d)
         self.model.compute()
 
