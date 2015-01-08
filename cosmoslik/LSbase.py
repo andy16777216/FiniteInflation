@@ -89,7 +89,6 @@ class main(SlikPlugin):
 
         
     def __call__(self):
-        self.cosmo.As = exp(self.cosmo.logA)*1e-10
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
