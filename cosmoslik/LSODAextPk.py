@@ -31,14 +31,14 @@ class main(SlikPlugin):
             #phi0 = -20.5,
             #m6 = 1.4,
             #omnuh2 = 0,	#0.000645,
-            #massive_neutrinos=0,#param( 3, .2),
+            massive_neutrinos=0,#param( 3, .2),
             massless_neutrinos=3.046, #param(3,.2)
             l_max_scalar=3000,
             l_max_tensor=500,
             pivot_scalar=0.05,
-            w=-1.0,
+            #w=-1.0,
             r=None,
-            nrun=None,
+            #nrun=None,
             omk=0,
             Yp=None,
             Tcmb=2.7255#,
@@ -120,7 +120,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=12,
+             num_samples=120,
              output_file='chains/LSODA3.chain',
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
