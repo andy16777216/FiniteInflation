@@ -16,14 +16,16 @@ class main(SlikPlugin):
         super(SlikPlugin,self).__init__()
 
         self.cosmo = get_plugin('models.cosmology')(
-            logA = param(3.2),
-            ns = param(0.96),
-            k_c = param(-8, scale = 1, range = (-13,-5)),
             ombh2 = param(0.0221),
             omch2 = param(0.12),
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
-            alpha_exp = 3.35,
+            phi0 = param(20.5, scale = 0.1, range = (19.7,21.3)),
+            m6 = param(1.4, scale = 0.1, range = (5.0, 7.0)),
+            logA = None,
+            ns = None,
+            k_c = None,
+            alpha_exp = None,
             massless_neutrinos=3.046, #param(3,.2)
             l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
             l_max_tensor=3000,
@@ -76,12 +78,12 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=1000000,
-             output_file='chains/CFv9lowl.chain',
+             num_samples=100,
+             output_file='chains/LStest1.chain',
              proposal_cov='../data/proposal.covmat',
              proposal_scale=1,
              #print_level=0,
-             output_extra_params=['cosmo.Yp','cosmo.H0','cosmo.kcactual','cosmo.alphaactual','cl_TT2','cl_TT3','cl_TT4','cl_TT5','cl_TT6','cl_TT7','cl_TT8','cl_TT20','cl_TT40','cl_TT80','cl_TT120','cl_TT200','cl_TT500']
+             output_extra_params=['cosmo.Yp','cosmo.H0','cl_TT2','cl_TT3','cl_TT4','cl_TT5','cl_TT6','cl_TT7','cl_TT8','cl_TT20','cl_TT40','cl_TT80','cl_TT120','cl_TT200','cl_TT500']
 	)
 
 
@@ -90,8 +92,6 @@ class main(SlikPlugin):
         self.cosmo.As = exp(self.cosmo.logA)*1e-10
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
-        self.cosmo.kcactual = exp(self.cosmo.k_c)
-        self.cosmo.alphaactual = 1./(1.-self.cosmo.alpha_exp)-1.
 	    #print 'getting cmb'
         self.cmb_result = self.get_cmb(force = True, outputs=['cl_TT','cl_TE','cl_EE','cl_BB','cl_PP','cl_TP'],**self.cosmo)
         self.cl_TT = self.cmb_result['cl_TT']
