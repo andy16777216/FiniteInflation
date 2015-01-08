@@ -23,6 +23,7 @@ class main(SlikPlugin):
             phi0 = param(20.5, scale = 0.1, range = (19.7,21.3)),
             m6 = param(1.4, scale = 0.1, range = (5.0, 7.0)),
             logA = None,
+            As = None,
             ns = None,
             k_c = None,
             alpha_exp = None,
