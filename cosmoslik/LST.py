@@ -27,7 +27,7 @@ class main(SlikPlugin):
             theta = param(0.010413),
             #alpha_exp = 3.35,
             phi0 = param(20.5, scale = 0.1, range = (19.7,21.3)),
-            m6 = param(1.4, scale = 0.1, range = (5.0, 7.0)),
+            m6 = param(6.0, scale = 0.1, range = (5.0, 7.0)),
             #phi0 = -20.5,
             #m6 = 1.4,
             #omnuh2 = 0,	#0.000645,
