@@ -390,8 +390,8 @@ def like1d(dat,weights=None,
     xem=movavg(xe,2)
     ax.plot(xem,H,**kw)
     #ANDY below
-    ax.xlabel('\\phi_0')
-    ax.show()
+    #ax.xlabel('\\phi_0')
+    #ax.show()
 
 def get_correlation(data,weights=None):
     cv = get_covariance(data,weights)
