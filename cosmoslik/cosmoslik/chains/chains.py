@@ -389,6 +389,9 @@ def like1d(dat,weights=None,
     if maxed: H=H/max(H)
     xem=movavg(xe,2)
     ax.plot(xem,H,**kw)
+    #ANDY below
+    ax.xlabel('\\phi_0')
+    ax.show()
 
 def get_correlation(data,weights=None):
     cv = get_covariance(data,weights)
