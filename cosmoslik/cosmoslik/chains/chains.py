@@ -514,6 +514,121 @@ def likegrid(chains, params=None,
 from collections import Iterable
 import operator as op
 
+def likegridandy(chains, params=None, 
+             lims=None, ticks=None,
+             default_chain=0,
+             colors=None, filled=True,
+             nbins1d=30, nbins2d=20,
+             labels=None,
+             fig=None,
+             size=2,
+             legend_loc=None,
+             param_name_mapping=None,
+             param_label_size=None):
+    """
+    Make a grid (aka "triangle plot") of 1- and 2-d likelihood contours. 
+    
+    Parameters
+    ----------
+    
+    chains : 
+        one or a list of `Chain` objects
+        
+    default_chain, optional :
+        the chain used to get default parameters names, axes limits, and ticks 
+        either an index into chains or a `Chain` object (default: chains[0])
+        
+    params, optional : 
+        list of parameter names which to show 
+        (default: all parameters from default_chain)
+        
+    lims, optional :
+        a dictionary mapping parameter names to (min,max) axes limits
+        (default: +/- 4 sigma from default_chain)
+        
+    ticks, optional :
+        a dictionary mapping parameter names to list of [ticks]
+        (default: [-2, 0, +2] sigma from default_chain)
+        
+    fig, optional :
+        figure of figure number in which to plot (default: figure(0))
+        
+    size, optional :
+        size in inches of one plot (default: 2)
+        
+    colors, optional : 
+        colors to cycle through for plotting
+        
+    filled, optional :
+        whether to fill in the contours (default: True)
+        
+    labels, optional :
+        list of names for a legend
+        
+    legend_loc, optional :
+        (x,y) location of the legend (coordinates scaled to [0,1]) 
+        
+    nbins1d, optional : 
+        number of bins for 1d plots (default: 30)
+        
+    nbins2d, optional :
+        number of bins for 2d plots (default: 20)
+    """
+    from matplotlib.pyplot import figure, Line2D
+    fig = figure(0) if fig is None else (figure(fig) if isinstance(fig,int) else fig)
+    if type(chains)!=list: chains=[chains]
+    if params==None: params = sorted(reduce(lambda x,y: set(x)&set(y), [c.params() for c in chains]))
+    if param_name_mapping is None: param_name_mapping = {}
+    if size is not None: fig.set_size_inches(*([size*len(params)]*2))
+    if colors is None: colors=['b','orange','k','m','cyan']
+    fig.subplots_adjust(hspace=0,wspace=0)
+    
+    c=chains[default_chain] if isinstance(default_chain,int) else default_chain
+    lims = dict({p:(max(min(c[p]),mean(c[p])-4*std(c[p])),min(max(c[p]),mean(c[p])+4*std(c[p]))) for p in params},**(lims if lims is not None else {}))
+    #ANDY
+    ticks = dict({p:[t for t in ts if lims[p][0]<=t<=lims[p][1]] for (p,ts) in zip(params,(c.mean(params)+c.std(params)*transpose([[-2,-1,0,1,2]])).T)},**(ticks if ticks is not None else {}))
+    #original below
+    #ticks = dict({p:[t for t in ts if lims[p][0]<=t<=lims[p][1]] for (p,ts) in zip(params,(c.mean(params)+c.std(params)*transpose([[-2,0,2]])).T)},**(ticks if ticks is not None else {}))
+
+    n=len(params)
+    for (i,p1) in enumerate(params):
+        for (j,p2) in enumerate(params):
+            if (i<=j):
+                ax=fig.add_subplot(n,n,j*n+i+1)
+                ax.set_xticks(ticks[p1])
+                ax.set_xlim(*lims[p1])
+                if (i==j): 
+                    for (ch,col) in zip(chains,colors): 
+                        if p1 in ch: ch.like1d(p1,nbins=nbins1d,color=col,ax=ax)
+                    ax.set_yticks([])
+                    
+                elif (i<j): 
+                    for (ch,col) in zip(chains,colors): 
+                        if p1 in ch and p2 in ch: ch.like2d(p1,p2,filled=filled,nbins=nbins2d,color=col,ax=ax)
+                    ax.set_yticks(ticks[p2])
+                    ax.set_ylim(*lims[p2])
+                        
+                if i==0: 
+                    ax.set_ylabel(param_name_mapping.get(p2,p2),size=param_label_size)
+                    ax.set_yticklabels(['%.3g'%t for t in ticks[p2]])
+                else: 
+                    ax.set_yticklabels([])
+                
+                if j==n-1: 
+                    ax.set_xlabel(param_name_mapping.get(p1,p1),size=param_label_size)
+                    ax.set_xticklabels(['%.3g'%t for t in ticks[p1]])
+                else: 
+                    ax.set_xticklabels([])
+                    
+    fig.autofmt_xdate(rotation=90)
+    
+    if labels is not None:
+        fig.legend([Line2D([0],[0],c=c) for c in colors],labels,fancybox=True,shadow=True,loc=legend_loc)
+
+
+from collections import Iterable
+import operator as op
+
 def likegrid1d(chains, 
                params='all',
                lims=None, 
