@@ -24,7 +24,7 @@ from numbers import Number
 
 
 __all__ = ['Chain','Chains',
-           'like1d','like2d','likegrid','likegrid1d','likepoints',
+           'like1d','like2d','likegrid','likegridandy','likegrid1d','likepoints',
            'get_covariance', 'load_chain']
 
 
@@ -257,6 +257,14 @@ class Chain(dict):
         """
         if 'color' in kwargs: kwargs['colors']=[kwargs.pop('color')]
         likegrid(self,**kwargs)
+
+    def likegridandy(self,**kwargs):
+        """
+        Make a grid (aka "triangle plot") of 1- and 2-d likelihood contours. 
+        See :func:`~cosmoslik.chains.likegridandy`
+        """
+        if 'color' in kwargs: kwargs['colors']=[kwargs.pop('color')]
+        likegridandy(self,**kwargs)
 
     def likepoints(self,*args,**kwargs):
         """
