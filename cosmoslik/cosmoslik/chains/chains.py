@@ -393,6 +393,20 @@ def like1d(dat,weights=None,
     #ax.xlabel('\\phi_0')
     #ax.show()
 
+def like1dandy(dat,weights=None,
+           nbins=30,range=None,maxed=True,
+           ax=None,
+           **kw):
+    from matplotlib.pyplot import gca
+    from matplotlib.mlab import movavg
+    if ax is None: ax = gca()   
+    if weights is None: weights=ones(len(dat))
+    H, xe = histogram(dat,bins=nbins,weights=weights,normed=True,range=range)
+    if maxed: H=H/max(H)
+    xem=movavg(xe,2)
+    ax.plot(xem,H,**kw)
+
+
 def get_correlation(data,weights=None):
     cv = get_covariance(data,weights)
     n,n = cv.shape
@@ -610,7 +624,7 @@ def likegridandy(chains, params=None,
                 ax.set_xlim(*lims[p1])
                 if (i==j): 
                     for (ch,col) in zip(chains,colors): 
-                        if p1 in ch: ch.like1d(ch[p1],weights=ch["weight"],nbins=nbins1d,color=col,ax=ax)
+                        if p1 in ch: ch.like1dandy(ch[p1],weights=ch["weight"],nbins=nbins1d,color=col,ax=ax)
                         #if p1 in ch: ch.like1d(p1,nbins=nbins1d,color=col,ax=ax)
                     ax.set_yticks([])
                     
