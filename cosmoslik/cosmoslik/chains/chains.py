@@ -610,7 +610,7 @@ def likegridandy(chains, params=None,
                 ax.set_xlim(*lims[p1])
                 if (i==j): 
                     for (ch,col) in zip(chains,colors): 
-                        if p1 in ch: ch.like1d(p1,weights=chains['weight'],nbins=nbins1d,color=col,ax=ax)
+                        if p1 in ch: ch.like1d(p1,weights=self["weight"],nbins=nbins1d,color=col,ax=ax)
                     ax.set_yticks([])
                     
                 elif (i<j): 
