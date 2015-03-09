@@ -621,7 +621,10 @@ def likegridandy(chains, params=None,
                         
                 if i==0: 
                     ax.set_ylabel(param_name_mapping.get(p2,p2),size=param_label_size)
-                    ax.set_yticklabels(['%.5f'%t for t in ticks[p2]])
+                    #int(2-log10(std(c[p2])))
+                    #'{0:.{s}f}'.format(1.234, s = 2) #ANDY
+                    ax.set_yticklabels(['{0:.{s}f}'.format(t, s = int(2-log10(std(c[p2])))) for t in ticks[p2]])
+                    #ax.set_yticklabels(['%.5f'%t for t in ticks[p2]])
                 else: 
                     ax.set_yticklabels([])
                 
