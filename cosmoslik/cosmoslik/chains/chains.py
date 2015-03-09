@@ -243,6 +243,13 @@ class Chain(dict):
         """
         like1d(self[p],weights=self["weight"],**kwargs)
         
+    def like1dandy(self,p,**kwargs): 
+        """
+        Plots 1D likelihood contours for a parameter.
+        See :func:`~cosmoslik.chains.like1d`
+        """
+        like1d(self[p],**kwargs)
+        
     def like2d(self,p1,p2,**kwargs): 
         """
         Plots 2D likelihood contours for a pair of parameters.
@@ -624,7 +631,7 @@ def likegridandy(chains, params=None,
                 ax.set_xlim(*lims[p1])
                 if (i==j): 
                     for (ch,col) in zip(chains,colors): 
-                        if p1 in ch: ch.like1dandy(ch[p1],weights=ch["weight"],nbins=nbins1d,color=col,ax=ax)
+                        if p1 in ch: ch.like1dandy(p1,weights=ch["weight"],nbins=nbins1d,color=col,ax=ax)
                         #if p1 in ch: ch.like1d(p1,nbins=nbins1d,color=col,ax=ax)
                     ax.set_yticks([])
                     
