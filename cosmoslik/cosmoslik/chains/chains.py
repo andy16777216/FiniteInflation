@@ -535,7 +535,7 @@ def likegridandy(chains, params=None,
              size=2,
              legend_loc=None,
              param_name_mapping=None,
-             param_label_size=20):
+             param_label_size=14):
     """
     Make a grid (aka "triangle plot") of 1- and 2-d likelihood contours. 
     
@@ -640,6 +640,7 @@ def likegridandy(chains, params=None,
     if labels is not None:
         fig.legend([Line2D([0],[0],c=c) for c in colors],labels,fancybox=True,shadow=True,loc=legend_loc)
 
+fig.savefig('likegridandy.pdf', format='pdf',dpi=400)
 
 from collections import Iterable
 import operator as op
