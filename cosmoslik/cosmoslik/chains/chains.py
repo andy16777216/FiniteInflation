@@ -400,7 +400,7 @@ def like1d(dat,weights=None,
     #ax.xlabel('\\phi_0')
     #ax.show()
 
-def like1dandy(dat,weights=None,
+def like1dandy(dat,weights,
            nbins=30,range=None,maxed=True,
            ax=None,
            **kw):
