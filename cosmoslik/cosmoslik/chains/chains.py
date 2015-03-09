@@ -621,13 +621,13 @@ def likegridandy(chains, params=None,
                         
                 if i==0: 
                     ax.set_ylabel(param_name_mapping.get(p2,p2),size=param_label_size)
-                    ax.set_yticklabels(['%.3g'%t for t in ticks[p2]])
+                    ax.set_yticklabels(['%.5f'%t for t in ticks[p2]])
                 else: 
                     ax.set_yticklabels([])
                 
                 if j==n-1: 
                     ax.set_xlabel(param_name_mapping.get(p1,p1),size=param_label_size)
-                    ax.set_xticklabels(['%.3g'%t for t in ticks[p1]])
+                    ax.set_xticklabels(['%.5f'%t for t in ticks[p1]])
                 else: 
                     ax.set_xticklabels([])
                     
