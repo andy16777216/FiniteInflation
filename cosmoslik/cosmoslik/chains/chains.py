@@ -532,7 +532,7 @@ def likegridandy(chains, params=None,
              nbins1d=30, nbins2d=20,
              labels=None,
              fig=None,
-             size=2,
+             size=3,
              legend_loc=None,
              param_name_mapping=None,
              param_label_size=None):
@@ -630,7 +630,8 @@ def likegridandy(chains, params=None,
                 
                 if j==n-1: 
                     ax.set_xlabel(param_name_mapping.get(p1,p1),size=param_label_size)
-                    ax.set_xticklabels(['%.5f'%t for t in ticks[p1]])
+                    ax.set_yticklabels(['{0:.{s}f}'.format(t, s = int(2-log10(std(c[p2])))) for t in ticks[p2]])
+                    #ax.set_xticklabels(['%.5f'%t for t in ticks[p1]])
                 else: 
                     ax.set_xticklabels([])
                     
