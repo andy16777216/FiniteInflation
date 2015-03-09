@@ -24,7 +24,7 @@ from numbers import Number
 
 
 __all__ = ['Chain','Chains',
-           'like1d','like2d','likegrid','likegridandy','likegrid1d','likepoints',
+           'like1d','like1dandy','like2d','likegrid','likegridandy','likegrid1d','likepoints',
            'get_covariance', 'load_chain']
 
 
