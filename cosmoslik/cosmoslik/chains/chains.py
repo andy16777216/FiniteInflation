@@ -532,7 +532,7 @@ def likegridandy(chains, params=None,
              nbins1d=30, nbins2d=20,
              labels=None,
              fig=None,
-             size=2,
+             size=20,
              legend_loc=None,
              param_name_mapping=None,
              param_label_size=1):
