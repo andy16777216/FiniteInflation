@@ -482,9 +482,9 @@ def likegrid(chains, params=None,
     c=chains[default_chain] if isinstance(default_chain,int) else default_chain
     lims = dict({p:(max(min(c[p]),mean(c[p])-4*std(c[p])),min(max(c[p]),mean(c[p])+4*std(c[p]))) for p in params},**(lims if lims is not None else {}))
     #ANDY
-    ticks = dict({p:[t for t in ts if lims[p][0]<=t<=lims[p][1]] for (p,ts) in zip(params,(c.mean(params)+c.std(params)*transpose([[-2,-1,0,1,2]])).T)},**(ticks if ticks is not None else {}))
+    #ticks = dict({p:[t for t in ts if lims[p][0]<=t<=lims[p][1]] for (p,ts) in zip(params,(c.mean(params)+c.std(params)*transpose([[-2,-1,0,1,2]])).T)},**(ticks if ticks is not None else {}))
     #original below
-    #ticks = dict({p:[t for t in ts if lims[p][0]<=t<=lims[p][1]] for (p,ts) in zip(params,(c.mean(params)+c.std(params)*transpose([[-2,0,2]])).T)},**(ticks if ticks is not None else {}))
+    ticks = dict({p:[t for t in ts if lims[p][0]<=t<=lims[p][1]] for (p,ts) in zip(params,(c.mean(params)+c.std(params)*transpose([[-2,0,2]])).T)},**(ticks if ticks is not None else {}))
 
     n=len(params)
     for (i,p1) in enumerate(params):
