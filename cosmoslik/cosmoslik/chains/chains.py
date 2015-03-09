@@ -248,7 +248,7 @@ class Chain(dict):
         Plots 1D likelihood contours for a parameter.
         See :func:`~cosmoslik.chains.like1d`
         """
-        like1d(self[p],**kwargs)
+        like1dandy(self[p],**kwargs)
         
     def like2d(self,p1,p2,**kwargs): 
         """
