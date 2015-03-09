@@ -532,10 +532,10 @@ def likegridandy(chains, params=None,
              nbins1d=30, nbins2d=20,
              labels=None,
              fig=None,
-             size=20,
+             size=2,
              legend_loc=None,
              param_name_mapping=None,
-             param_label_size=1):
+             param_label_size=20):
     """
     Make a grid (aka "triangle plot") of 1- and 2-d likelihood contours. 
     
