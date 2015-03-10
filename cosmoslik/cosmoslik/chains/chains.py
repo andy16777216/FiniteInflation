@@ -22,6 +22,9 @@ from functools import partial
 from multiprocessing.pool import Pool
 from numbers import Number
 
+from matplotlib.pyplot import gca #ANDY
+from matplotlib.mlab import movavg #ANDY
+
 
 __all__ = ['Chain','Chains',
            'like1d','like1dandy','like2d','likegrid','likegridandy','likegrid1d','likepoints',
