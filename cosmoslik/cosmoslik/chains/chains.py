@@ -633,7 +633,7 @@ def likegridandy(chains, params=None,
                     for (ch,col) in zip(chains,colors): 
                         #if p1 in ch: ch.like1dandy(p1,weights=ch["weight"],nbins=nbins1d,maxed=True,color=col,ax=ax)
                         if p1 in ch: 
-                            H, xe = histogram(ch[p1],bins=nbins,weights=ch['weight'],normed=True,range=None)
+                            H, xe = histogram(ch[p1],bins=nbins1d,weights=ch['weight'],normed=True,range=None)
                             H=H/max(H)
                             xem=movavg(xe,2)
                             ax.plot(xem,H)
