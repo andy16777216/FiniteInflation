@@ -2943,10 +2943,8 @@ int main(int argc, char *argv[])
   double kfi = 3.56416e26/sqrt(apmax*amax);
   double kf = exp(logkc)/apmin;
 
-  printf ("top = %.5e ,apmin = %.5e ,apmax = %.5e, kf = %.5e, kfi = %.5e\n", top, apmin, apmax, kf,kfi);
-//  printf ("phi = %.5e ,phip = %.5e ,a = %.5e, t = %.5e\n", y[1], y[2], y[3], t);
-//  printf ("t2 = %.5e ,t1 = %.5e ,phi0 = %.5e, phip0 = %.5e, L = %.5e\n", t2, t1, phi0, phip0, L);
-  printf ("bottom = %.5e ,logkc = %.5e ,phi0 = %.5e, phip0 = %.5e, L = %.5e\n", bottom, logkc, phi0, phip0, L);
+//  printf ("top = %.5e ,apmin = %.5e ,apmax = %.5e, kf = %.5e, kfi = %.5e\n", top, apmin, apmax, kf,kfi);
+//  printf ("bottom = %.5e ,logkc = %.5e ,phi0 = %.5e, phip0 = %.5e, L = %.5e\n", bottom, logkc, phi0, phip0, L);
 
 //  /*
 double kmin = -7.;
