@@ -1,0 +1,6 @@
+#!/usr/local/bin/bash -e#
+git add --all   
+git commit -m "$*"
+git push origin master
+andy16777216
+
