@@ -18,9 +18,9 @@ class main(SlikPlugin):
             omch2 = param(0.12),
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
-            phi0 = param(9.8, scale = 2.4, range = (9.4, 10.0)),
+            phi0 = param(9.8, scale = 2.4, range = (9.2, 10.0)),
             L = param(3.5, scale = 2.4, range = (2.5, 4.5)),
-            logkc = param(7, scale = 2.4, range = (5.8, 10.4)),
+            logkc = param(8.4, scale = 2.4, range = (6.6, 10.4)),
             logA = None,
             As = None,
             ns = None,
@@ -80,8 +80,8 @@ class main(SlikPlugin):
              self,
              num_samples=40,
              output_file='chains/LSTR2_2.chain',
-             proposal_cov='../data/proposal.covmat',
-             proposal_scale=1,
+             proposal_cov='r2cov.covmat',
+             proposal_scale=2.4,
              #print_level=0,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
