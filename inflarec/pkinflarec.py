@@ -1,7 +1,8 @@
 #!/usr/bin/python
 import sys
 import math
-from scipy import special
+#from scipy import special
+import scipy.special
 
 # README:
 #
