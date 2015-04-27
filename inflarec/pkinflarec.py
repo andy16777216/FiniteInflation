@@ -54,7 +54,7 @@ def P(k) :
     i = 1
     while i < len(parlist):
         xi = parlist[i-1]
-        r = k*10^parlist[i]
+        r = k*pow(10,parlist[i])
         xi1 = parlist[i+1]
         D1new = (D1*math.pi*(r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) - 
         scipy.special.jv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
