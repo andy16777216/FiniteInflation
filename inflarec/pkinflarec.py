@@ -15,10 +15,19 @@ import scipy
 #    "sys.argv[1]" corresponds to "custom1" in Class, an so on
 
 try :
-    k_0           = float(sys.argv[1])
-    A             = float(sys.argv[2])
-    n_s           = float(sys.argv[3])
-    parlist = float(sys.argv[1:len(sys.argv)])
+    xi1           = float(sys.argv[1])
+    k2             = float(sys.argv[2])
+    xi3           = float(sys.argv[3])
+    k4             = float(sys.argv[4])
+    xi5           = float(sys.argv[5])
+    k6             = float(sys.argv[6])
+    xi7           = float(sys.argv[7])
+    k8             = float(sys.argv[8])
+    xi9           = float(sys.argv[9])
+
+parlist = {xi1,k2,xi3,k4,xi5,k6,xi7,k8,xi9}
+
+#    parlist = float(sys.argv[1:len(sys.argv)])
 
 #print parlist[5]
 #for eachArg in sys.argv[1:max[sys.argv]]:   
