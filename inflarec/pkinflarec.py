@@ -56,18 +56,18 @@ def P(k) :
         xi = parlist[i-1]
         r = k*10^parlist[i]
         xi1 = parlist[i+1]
-        D1new = D1*math.pi*(r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) - 
+        D1new = (D1*math.pi*(r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) - 
         scipy.special.jv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
         r*scipy.special.yv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1)) - 
         1j*D2*math.pi*(-r*scipy.special.yv(3/2 + 1/xi, r/xi+0j)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
         scipy.special.yv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
-        r*scipy.special.yv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1))
-        D2new = -1j*D1*math.pi*(-r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.jv(1/2 + 1/xi1, r/xi1+0j) + 
+        r*scipy.special.yv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1)))
+        D2new = (-1j*D1*math.pi*(-r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.jv(1/2 + 1/xi1, r/xi1+0j) + 
         scipy.special.jv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.jv(1/2 + 1/xi1, r/xi1+0j) + 
         r*scipy.special.jv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1)) + 
         D2*math.pi*(r*scipy.special.jv(3/2 + 1/xi1, r/xi1+0j)*scipy.special.yv(1/2 + 1/xi, r/xi+0j) + 
         scipy.special.jv(1/2 + 1/xi1, r/xi1+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi, r/xi+0j) - 
-        r*scipy.special.yv(3/2 + 1/xi, r/xi+0j)))/(2*math.sqrt(xi*xi1))
+        r*scipy.special.yv(3/2 + 1/xi, r/xi+0j)))/(2*math.sqrt(xi*xi1)))
         D1=D1new
         D2=D2new
         i+=2
