@@ -29,8 +29,8 @@ try :
 
     parlist = [xi0,k1,xi2,k3,xi4,k5,xi6,k7,xi8]
     
-    D1 = -math.sqrt(math.pi/4)*1j
-    D2 = -math.sqrt(math.pi/4)*1j
+    D10 = -math.sqrt(math.pi/4)*1j
+    D20 = -math.sqrt(math.pi/4)*1j
 
 #    parlist = float(sys.argv[1:len(sys.argv)])
 
@@ -54,7 +54,8 @@ except ValueError :
 
 
 def P(k) :
-    global D1,D2    
+    D1=D10
+    D2=D20
     i = 1
     while i < len(parlist)-6:
         xi = parlist[i-1]
