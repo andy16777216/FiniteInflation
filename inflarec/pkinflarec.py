@@ -46,8 +46,16 @@ except ValueError :
 
 #scipy.special.yv(1.5, -3+0j)
 
+D1 = -sqrt(Pi/4)i
+
+
+
 def P(k) :
-    return A * (k/k_0)**(n_s-1.)
+#    return A * (k/k_0)**(n_s-1.)
+return D1*parlist[1]
+
+
+
 
 # 3. Limits for k and precision:
 #    Check that the boundaries are correct for your case.
