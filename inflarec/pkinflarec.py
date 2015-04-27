@@ -79,7 +79,7 @@ def P(k) :
 
 
 #    return A * (k/k_0)**(n_s-1.)
-    return k^(2 - 2/xi1)*abs(D2)^2
+    return k**(2 - 2/xi1)*abs(D2)**2
 
 
 
