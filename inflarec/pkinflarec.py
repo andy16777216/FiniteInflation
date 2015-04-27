@@ -18,7 +18,7 @@ try :
     k_0           = float(sys.argv[1])
     A             = float(sys.argv[2])
     n_s           = float(sys.argv[3])
-#    parlist = float(sys.argv[1:len(sys.argv)])
+    parlist = float(sys.argv[1:len(sys.argv)])
 
 #print parlist[5]
 #for eachArg in sys.argv[1:max[sys.argv]]:   
