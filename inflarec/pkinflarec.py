@@ -20,8 +20,6 @@ try :
     n_s           = float(sys.argv[3])
     parlist = float(sys.argv[1:max[sys.argv]])
 
-for eachArg in parlist:
-    print eachArg
 
 #for eachArg in sys.argv[1:max[sys.argv]]:   
         
@@ -49,6 +47,10 @@ def P(k) :
 k_min  = 1.e-6
 k_max  = 10.
 k_per_decade_primordial = 200.
+
+
+for eachArg in parlist:
+    print eachArg
 
 #
 # And nothing should need to be edited from here on.
