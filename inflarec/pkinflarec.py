@@ -46,7 +46,7 @@ except ValueError :
 
 #scipy.special.yv(1.5, -3+0j)
 
-D1 = -sqrt(Pi/4)i
+D1 = -sqrt(Pi/4)j
 
 
 
