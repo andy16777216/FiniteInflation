@@ -26,6 +26,9 @@ try :
     xi8           = float(sys.argv[9])
 
     parlist = [xi0,k1,xi2,k3,xi4,k5,xi6,k7,xi8]
+    
+    D1 = -math.sqrt(math.pi/4)*1j
+    D2 = -math.sqrt(math.pi/4)*1j
 
 #    parlist = float(sys.argv[1:len(sys.argv)])
 
@@ -46,8 +49,7 @@ except ValueError :
 
 #scipy.special.yv(1.5, -3+0j)
 
-D1 = -math.sqrt(math.pi/4)*1j
-D2 = -math.sqrt(math.pi/4)*1j
+
 
 def P(k) :
     
