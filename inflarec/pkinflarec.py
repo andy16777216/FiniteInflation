@@ -18,6 +18,13 @@ try :
     k_0           = float(sys.argv[1])
     A             = float(sys.argv[2])
     n_s           = float(sys.argv[3])
+    parlist = float(sys.argv[1:max[sys.argv]])
+
+for eachArg in parlist:
+    print eachArg
+
+#for eachArg in sys.argv[1:max[sys.argv]]:   
+        
 
 # Error control, no need to touch
 except IndexError :
