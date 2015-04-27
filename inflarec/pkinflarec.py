@@ -52,7 +52,7 @@ except ValueError :
 
 
 def P(k) :
-    
+    global D1,D2    
     i = 1
     while i < len(parlist):
         xi = parlist[i-1]
