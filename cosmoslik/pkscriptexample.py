@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 from math import exp
+import scipy
 
 # README:
 #
@@ -27,6 +28,9 @@ except ValueError :
 
 # 2. The function giving P(k), including the necessary import statements.
 #    Inside this function, you can use the parameters named in the previous step.
+
+
+#scipy.special.yv(1.5, -3+0j)
 
 def P(k) :
     return A * (k/k_0)**(n_s-1.)
