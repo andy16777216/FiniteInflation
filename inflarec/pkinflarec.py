@@ -56,7 +56,7 @@ except ValueError :
 def P(k) :
     global D1,D2    
     i = 1
-    while i < len(parlist-6):
+    while i < len(parlist)-6:
         xi = parlist[i-1]
         r = k*pow(10,parlist[i])
         xi1 = parlist[i+1]
