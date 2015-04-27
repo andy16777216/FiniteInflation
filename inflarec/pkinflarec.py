@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-from math import exp
+import math
 import scipy
 
 # README:
