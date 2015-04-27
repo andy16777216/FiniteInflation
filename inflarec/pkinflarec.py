@@ -15,17 +15,17 @@ import scipy
 #    "sys.argv[1]" corresponds to "custom1" in Class, an so on
 
 try :
-    xi1           = float(sys.argv[1])
-    k2             = float(sys.argv[2])
-    xi3           = float(sys.argv[3])
-    k4             = float(sys.argv[4])
-    xi5           = float(sys.argv[5])
-    k6             = float(sys.argv[6])
-    xi7           = float(sys.argv[7])
-    k8             = float(sys.argv[8])
-    xi9           = float(sys.argv[9])
+    xi0           = float(sys.argv[1])
+    k1             = float(sys.argv[2])
+    xi2           = float(sys.argv[3])
+    k3             = float(sys.argv[4])
+    xi4           = float(sys.argv[5])
+    k5             = float(sys.argv[6])
+    xi6           = float(sys.argv[7])
+    k7             = float(sys.argv[8])
+    xi8           = float(sys.argv[9])
 
-    parlist = [xi1,k2,xi3,k4,xi5,k6,xi7,k8,xi9]
+    parlist = [xi0,k1,xi2,k3,xi4,k5,xi6,k7,xi8]
 
 #    parlist = float(sys.argv[1:len(sys.argv)])
 
@@ -47,12 +47,35 @@ except ValueError :
 #scipy.special.yv(1.5, -3+0j)
 
 D1 = -math.sqrt(math.pi/4)*1j
-
-
+D2 = -math.sqrt(math.pi/4)*1j
 
 def P(k) :
+    
+    i = 1
+    while i < len(parlist):
+        xi = parlist[i-1]
+        r = k*10^parlist[i]
+        xi1 = parlist[i+1]
+        D1new = D1*math.pi*(r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) - 
+        scipy.special.jv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
+        r*scipy.special.yv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1)) - 
+        1j*D2*math.pi*(-r*scipy.special.yv(3/2 + 1/xi, r/xi+0j)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
+        scipy.special.yv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi1, r/xi1+0j) + 
+        r*scipy.special.yv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1))
+        D2new = -1j*D1*math.pi*(-r*scipy.special.jv(3/2 + 1/xi, r/xi+0j)*scipy.special.jv(1/2 + 1/xi1, r/xi1+0j) + 
+        scipy.special.jv(1/2 + 1/xi, r/xi+0j)*((xi - xi1)*scipy.special.jv(1/2 + 1/xi1, r/xi1+0j) + 
+        r*scipy.special.jv(3/2 + 1/xi1, r/xi1+0j)))/(2*math.sqrt(xi*xi1)) + 
+        D2*math.pi*(r*scipy.special.jv(3/2 + 1/xi1, r/xi1+0j)*scipy.special.yv(1/2 + 1/xi, r/xi+0j) + 
+        scipy.special.jv(1/2 + 1/xi1, r/xi1+0j)*((xi - xi1)*scipy.special.yv(1/2 + 1/xi, r/xi+0j) - 
+        r*scipy.special.yv(3/2 + 1/xi, r/xi+0j)))/(2*math.sqrt(xi*xi1))
+        D1=D1new
+        D2=D2new
+        i+=2
+        
+
+
 #    return A * (k/k_0)**(n_s-1.)
-    return abs(D1)*parlist[1]
+    return k^(2 - 2/xi1)*abs(D2)^2
 
 
 
