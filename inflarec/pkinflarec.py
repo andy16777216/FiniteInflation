@@ -25,7 +25,7 @@ try :
     k8             = float(sys.argv[8])
     xi9           = float(sys.argv[9])
 
-    parlist = {xi1,k2,xi3,k4,xi5,k6,xi7,k8,xi9}
+    parlist = [xi1,k2,xi3,k4,xi5,k6,xi7,k8,xi9]
 
 #    parlist = float(sys.argv[1:len(sys.argv)])
 
