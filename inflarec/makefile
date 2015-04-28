@@ -1,0 +1,21 @@
+#pk:	infrec.o
+#	g++ -Wall -I/usr/local/include -c infrec.c
+#	g++ -L/usr/local/lib infrec.o -lgsl -lgslcblas -lm -o pk -lboost_system
+
+#g++ -I"/home/third_party/boost/" -L"/usr/lib/x86_64-linux-gnu/" -Wall -m64 infrec.cpp -o main -lboost_system
+
+#g++ -g infrec.cpp -o infrec -L/usr/local/lib/ -lboost_filesystem
+
+#pk:	infrec.o
+#	g++ -I/home/ubuntu/boost_1_58_0 -L/usr/local/lib -L/home/ubuntu/boost_1_58_0/stage/lib infrec.cpp infrec.o -o pk
+
+#    -lm -o infrec
+#    -lboost_system 
+#    -lboost_thread
+#    -lboost_regex 
+
+pk:	infrec.o
+	g++ -Wall -I/usr/local/include -c infrec.cpp
+	g++ -L/usr/local/lib infrec.o -lgfortran -lcomplex_bessel -lgsl -lgslcblas -lm -o pk
+
+#g++ -lgfortran -lcomplex_bessel example.cpp
