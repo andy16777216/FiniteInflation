@@ -76,7 +76,7 @@ def P(k) :
         D1=D1new
         D2=D2new
         i+=2
-        print D1,D2
+        print D1,D2,xi,r,xi1
 
 
 #    return A * (k/k_0)**(n_s-1.)
