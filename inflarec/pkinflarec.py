@@ -26,7 +26,7 @@ try :
     xi6           = float(sys.argv[7])
     k7             = float(sys.argv[8])
     xi8           = float(sys.argv[9])
-    A           = float(sys.argv[10])
+    A           = float(sys.argv[10])*1.e-9
 
     parlist = [xi0,k1,xi2,k3,xi4,k5,xi6,k7,xi8]
     
