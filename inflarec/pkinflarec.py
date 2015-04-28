@@ -26,6 +26,7 @@ try :
     xi6           = float(sys.argv[7])
     k7             = float(sys.argv[8])
     xi8           = float(sys.argv[9])
+    A           = float(sys.argv[10])
 
     parlist = [xi0,k1,xi2,k3,xi4,k5,xi6,k7,xi8]
     
@@ -80,7 +81,7 @@ def P(k) :
 
 
 #    return A * (k/k_0)**(n_s-1.)
-    return 2.2e-9*pow(k,(2. - 2./xi1))*pow(abs(D2),2)
+    return A*pow(k,(2. - 2./xi1))*pow(abs(D2),2)
 
 
 
