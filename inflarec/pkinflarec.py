@@ -80,7 +80,7 @@ def P(k) :
 
 
 #    return A * (k/k_0)**(n_s-1.)
-    return pow(k,(2. - 2./xi1))*pow(abs(D2),2)
+    return 2.2e-9*pow(k,(2. - 2./xi1))*pow(abs(D2),2)
 
 
 
@@ -91,7 +91,7 @@ def P(k) :
 
 k_min  = 1.e-6
 k_max  = 10.
-k_per_decade_primordial = 2.
+k_per_decade_primordial = 200.
 
 
 #for eachArg in parlist:
