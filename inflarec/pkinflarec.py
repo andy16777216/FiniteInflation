@@ -57,7 +57,7 @@ def P(k) :
     D1=D10
     D2=D20
     i = 1
-    while i < len(parlist)-6:
+    while i < len(parlist):
         xi = parlist[i-1]
         r = k*pow(10,parlist[i])
         xi1 = parlist[i+1]
