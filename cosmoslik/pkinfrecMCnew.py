@@ -39,8 +39,11 @@ class main(SlikPlugin):
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
-                    'w':'w'
+                    'w':'w',
+                    'Tcmb':'Tcmb',
+                    'omk':'omk'
                     }
+                     logA = None
                   
                   
         #d={name_mapping[k]:v for k,v in locals().items() 
