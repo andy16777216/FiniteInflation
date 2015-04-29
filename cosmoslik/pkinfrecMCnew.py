@@ -41,9 +41,10 @@ class main(SlikPlugin):
                     'pivot_scalar':'k_pivot',
                     'w':'w',
                     'Tcmb':'Tcmb',
-                    'omk':'omk'
+                    'omk':'omk',
+                    'l_max_tensor':'l_max_tensor',
+                    'nrun':'nrun'
                     }
-
 
 
         #d={name_mapping[k]:v for k,v in locals().items() 
@@ -77,6 +78,7 @@ class main(SlikPlugin):
         k_c = None
         alpha_exp = None
         massless_neutrinos=3.046 #param(3,.2)
+        massive_neutrinos = 0
         l_max_tensor=3000
         pivot_scalar=0.05
         w=-1.0
