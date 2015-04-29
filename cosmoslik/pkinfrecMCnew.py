@@ -43,9 +43,9 @@ class main(SlikPlugin):
                     'Tcmb':'Tcmb',
                     'omk':'omk'
                     }
-                     logA = None
-                  
-                  
+
+
+
         #d={name_mapping[k]:v for k,v in locals().items() 
         #if k in name_mapping and v is not None}
         d = {}
