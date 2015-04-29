@@ -15,6 +15,42 @@ class main(SlikPlugin):
     def __init__(self):
         super(SlikPlugin,self).__init__()
 
+        name_mapping = {'As':'A_s',
+                    'ns':'n_s',
+                    'r':'r',
+                    'xi0':'custom1',
+                    'k1':'custom2',
+                    'xi2':'custom3',
+                    'k3':'custom4',
+                    'xi4':'custom5',
+                    'k5':'custom6',
+                    'xi6':'custom7',
+                    'k7':'custom8',
+                    'xi8':'custom9',
+                    'A':'custom10',
+                    'nt':'n_t',
+                    'ombh2':'omega_b',
+                    'omch2':'omega_cdm',
+                    'omnuh2':'omega_ncdm',
+                    'tau':'tau_reio',
+                    'H0':'H0',
+                    'massive_neutrinos':'N_ncdm',
+                    'massless_neutrinos':'N_ur',
+                    'Yp':'YHe',
+                    'pivot_scalar':'k_pivot',
+                    }
+                  
+                  
+        d={name_mapping[k]:v for k,v in locals().items() 
+        if k in name_mapping and v is not None}
+        d['P_k_ini type']='external_Pk'
+        d['modes'] = 's'
+        d['output']='tCl, lCl, pCl'
+        d['lensing'] ='yes'
+        d['l_max_scalars']=l_max_scalar
+        d['command'] = 'python ../inflarec/pkinflarec.py'
+
+
         self.cosmo = get_plugin('models.cosmology')(
             ombh2 = param(0.0221),
             omch2 = param(0.12),
@@ -45,55 +81,12 @@ class main(SlikPlugin):
             omk=0,
             Yp=None,
             Tcmb=2.7255,
-            lensing = 'yes'#,
+            lensing = 'yes',
+            outputs=[],
+            **d
         )
         
-        name_mapping = {'As':'A_s',
-                    'ns':'n_s',
-                    'r':'r',
-                    'xi0':'custom1',
-                    'k1':'custom2',
-                    'xi2':'custom3',
-                    'k3':'custom4',
-                    'xi4':'custom5',
-                    'k5':'custom6',
-                    'xi6':'custom7',
-                    'k7':'custom8',
-                    'xi8':'custom9',
-                    'A':'custom10',
-                    'nt':'n_t',
-                    'ombh2':'omega_b',
-                    'omch2':'omega_cdm',
-                    'omnuh2':'omega_ncdm',
-                    'tau':'tau_reio',
-                    'H0':'H0',
-                    'massive_neutrinos':'N_ncdm',
-                    'massless_neutrinos':'N_ur',
-                    'Yp':'YHe',
-                    'pivot_scalar':'k_pivot',
-                    }
-                  
-        w=None
-        r=None
-        nrun=None
-        omk=0
-        Yp=None
-        Tcmb=2.7255
-        massless_neutrinos=3.046
-        l_max_scalar=3000
-        l_max_tensor=3000
-        pivot_scalar=0.05
-        outputs=[]
-                  
-                  
-        d={name_mapping[k]:v for k,v in locals().items() 
-        if k in name_mapping and v is not None}
-        d['P_k_ini type']='external_Pk'
-        d['modes'] = 's'
-        d['output']='tCl, lCl, pCl'
-        d['lensing'] ='yes'
-        d['l_max_scalars']=l_max_scalar
-        d['command'] = 'python ../inflarec/pkinflarec.py'
+
 
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
