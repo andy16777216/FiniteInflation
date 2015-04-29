@@ -29,8 +29,8 @@ class main(SlikPlugin):
                     'xi8':'custom9',
                     'A':'custom10',
                     'nt':'n_t',
-                    'ombh2':'omega_b',
-                    'omch2':'omega_cdm',
+                    #'ombh2':'omega_b',
+                    #'omch2':'omega_cdm',
                     'omnuh2':'omega_ncdm',
                     'tau':'tau_reio',
                     'H0':'H0',
@@ -43,6 +43,8 @@ class main(SlikPlugin):
                   
         d={name_mapping[k]:v for k,v in locals().items() 
         if k in name_mapping and v is not None}
+        d['ombh2'] = param(0.0221),
+        d['omch2'] = param(0.12),
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's'
         d['output']='tCl, lCl, pCl'
@@ -53,8 +55,8 @@ class main(SlikPlugin):
 
 
         self.cosmo = get_plugin('models.cosmology')(
-            ombh2 = param(0.0221),
-            omch2 = param(0.12),
+            #ombh2 = param(0.0221),
+            #omch2 = param(0.12),
             tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             xi0 = param(-2, scale = 2.4, range = (-3, 3)),
