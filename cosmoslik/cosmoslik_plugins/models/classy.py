@@ -20,10 +20,11 @@ class classy(SlikPlugin):
 
 
     def __call__(self,
-                 **kwargs):
+        *args,
+        **kwargs):
 
 
-        self.model.set(**kwargs)
+        self.model.set(*args,**kwargs)
         self.model.compute()
 
         ell = arange(l_max_scalar+1)
