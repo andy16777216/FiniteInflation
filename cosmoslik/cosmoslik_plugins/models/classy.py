@@ -40,7 +40,7 @@ class classy(SlikPlugin):
                  **kwargs):
 
 
-        #self.model.set(**d)
+        self.model.set(kwargs)
         self.model.compute()
 
         ell = arange(l_max_scalar+1)
