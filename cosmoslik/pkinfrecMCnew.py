@@ -33,11 +33,13 @@ class main(SlikPlugin):
                     'omch2':'omega_cdm',
                     'omnuh2':'omega_ncdm',
                     'tau':'tau_reio',
+                    'theta':'theta',
                     'H0':'H0',
                     'massive_neutrinos':'N_ncdm',
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
+                    'w':'w'
                     }
                   
                   
