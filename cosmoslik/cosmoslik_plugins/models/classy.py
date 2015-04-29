@@ -20,23 +20,6 @@ class classy(SlikPlugin):
 
 
     def __call__(self,
-                 ombh2,
-                 omch2,
-                 H0,
-                 As,
-                 ns,
-                 tau,
-                 w=None,
-                 r=None,
-                 nrun=None,
-                 omk=0,
-                 Yp=None,
-                 Tcmb=2.7255,
-                 massless_neutrinos=3.046,
-                 l_max_scalar=3000,
-                 l_max_tensor=3000,
-                 pivot_scalar=0.05,
-                 outputs=[],
                  **kwargs):
 
 
