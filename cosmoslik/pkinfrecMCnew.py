@@ -51,36 +51,36 @@ class main(SlikPlugin):
         d['l_max_scalars']=l_max_scalar
         d['command'] = 'python ../inflarec/pkinflarec.py'
 
+	ombh2 = param(0.0221)
+        omch2 = param(0.12)
+        tau = param(0.09, range=(0.05,0.15))
+        theta = param(0.010413)
+        xi0 = param(-2, scale = 2.4, range = (-3, 3))
+        k1 = param(3.2, scale = 2.4, range = (0, 6))
+        xi2 = param(0.4, scale = 2.4, range = (-3, 3))
+        k3 = param(2.8, scale = 2.4, range = (0, 6))
+        xi4 = param(2, scale = 2.4, range = (-3, 3))
+        k5 = param(2.4, scale = 2.4, range = (0, 6))
+        xi6 = param(0.99, scale = 2.4, range = (-3, 3))
+        k7 = param(2, scale = 2.4, range = (0, 6))
+        xi8 = param(0.98, scale = 2.4, range = (-3, 3))
+        A = param(2.5, scale = 2.4, range = (0, 6))
+        logA = None
+        As = None
+        ns = None
+        k_c = None
+        alpha_exp = None
+        massless_neutrinos=3.046 #param(3,.2)
+        l_max_tensor=3000
+        pivot_scalar=0.05
+        w=-1.0
+        r=None
+        nrun=None
+        omk=0
+        Yp=None
+        Tcmb=2.7255
 
         self.cosmo = get_plugin('models.cosmology')(
-            ombh2 = param(0.0221),
-            omch2 = param(0.12),
-            tau = param(0.09, range=(0.05,0.15)),
-            theta = param(0.010413),
-            xi0 = param(-2, scale = 2.4, range = (-3, 3)),
-            k1 = param(3.2, scale = 2.4, range = (0, 6)),
-            xi2 = param(0.4, scale = 2.4, range = (-3, 3)),
-            k3 = param(2.8, scale = 2.4, range = (0, 6)),
-            xi4 = param(2, scale = 2.4, range = (-3, 3)),
-            k5 = param(2.4, scale = 2.4, range = (0, 6)),
-            xi6 = param(0.99, scale = 2.4, range = (-3, 3)),
-            k7 = param(2, scale = 2.4, range = (0, 6)),
-            xi8 = param(0.98, scale = 2.4, range = (-3, 3)),
-            A = param(2.5, scale = 2.4, range = (0, 6)),
-            logA = None,
-            As = None,
-            ns = None,
-            k_c = None,
-            alpha_exp = None,
-            massless_neutrinos=3.046, #param(3,.2)
-            l_max_tensor=3000,
-            pivot_scalar=0.05,
-            w=-1.0,
-            r=None,
-            nrun=None,
-            omk=0,
-            Yp=None,
-            Tcmb=2.7255,
             {name_mapping[k]:v for k,v in locals().items() 
         if k in name_mapping and v is not None},
             **d
