@@ -82,7 +82,7 @@ class main(SlikPlugin):
             Yp=None,
             Tcmb=2.7255,
             #lensing = 'yes',
-            outputs=[],
+            #outputs=[],
             **d
         )
         
