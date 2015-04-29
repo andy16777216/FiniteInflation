@@ -47,6 +47,7 @@ class main(SlikPlugin):
         d['modes'] = 's'
         d['output']='tCl, lCl, pCl'
         d['lensing'] ='yes'
+        l_max_scalar=3000
         d['l_max_scalars']=l_max_scalar
         d['command'] = 'python ../inflarec/pkinflarec.py'
 
@@ -72,7 +73,6 @@ class main(SlikPlugin):
             k_c = None,
             alpha_exp = None,
             massless_neutrinos=3.046, #param(3,.2)
-            l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
             l_max_tensor=3000,
             pivot_scalar=0.05,
             w=-1.0,
