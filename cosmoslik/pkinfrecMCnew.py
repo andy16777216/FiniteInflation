@@ -94,6 +94,7 @@ class main(SlikPlugin):
             **d
         )
         
+        print self.cosmo
 
 
 	#print 'loading likelihoods'
