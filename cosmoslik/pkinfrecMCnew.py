@@ -86,8 +86,8 @@ class main(SlikPlugin):
         outputs=[]
                   
                   
-        d={self.name_mapping[k]:v for k,v in locals().items() 
-        if k in self.name_mapping and v is not None}
+        d={name_mapping[k]:v for k,v in locals().items() 
+        if k in name_mapping and v is not None}
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's'
         d['output']='tCl, lCl, pCl'
