@@ -7,27 +7,7 @@ class classy(SlikPlugin):
     Plugin for CLASS.
     Credit: Brent Follin, Teresa Hamill, Andy Scacco
     """
-
-    #{cosmoslik name : class name} - This needs to be done even for variables with the same name (because of for loop in self.model.set)!
-    name_mapping = {'As':'A_s',
-                    'ns':'n_s',
-                    'r':'r',
-                    'phi0':'custom1',
-                    'L':'custom2',
-                    'logkc':'custom3',
-                    'nt':'n_t',
-                    'ombh2':'omega_b',
-                    'omch2':'omega_cdm',
-                    'omnuh2':'omega_ncdm',
-                    'tau':'tau_reio',
-                    'H0':'H0',
-                    'massive_neutrinos':'N_ncdm',
-                    'massless_neutrinos':'N_ur',
-                    'Yp':'YHe',
-                    'pivot_scalar':'k_pivot',
-                    }
-
-
+    
     def __init__(self):
         super(classy,self).__init__()
 
@@ -45,9 +25,6 @@ class classy(SlikPlugin):
                  H0,
                  As,
                  ns,
-                 phi0,
-                 L,
-                 logkc,
                  tau,
                  w=None,
                  r=None,
@@ -62,15 +39,8 @@ class classy(SlikPlugin):
                  outputs=[],
                  **kwargs):
 
-        d={self.name_mapping[k]:v for k,v in locals().items() 
-        if k in self.name_mapping and v is not None}
-        d['P_k_ini type']='external_Pk'
-        d['modes'] = 's,t'
-        self.model.set(output='tCl, lCl, pCl',
-                       lensing='yes',
-                       l_max_scalars=l_max_scalar,
-                       command = '../LSTfiniteR2/pk',
-                       **d)
+
+        self.model.set(**d)
         self.model.compute()
 
         ell = arange(l_max_scalar+1)
