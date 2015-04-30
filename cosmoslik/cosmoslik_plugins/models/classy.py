@@ -82,6 +82,7 @@ class classy(SlikPlugin):
         self.model.set(**d)
                        
         l_max = d['l_max_scalars']
+        Tcmb =  d['T_cmb']
         
         print l_max
 
