@@ -26,7 +26,9 @@ class classy(SlikPlugin):
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
                     'omk':'Omega_k',
-                    'l_max_scalar':'l_max_scalars'
+                    'l_max_scalar':'l_max_scalars',
+                    'l_max_tensor':'l_max_tensors',
+                    'Tcmb':'T_cmb'
                     }
 
 
