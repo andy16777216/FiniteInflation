@@ -37,12 +37,10 @@ class main(SlikPlugin):
 	d['Omega_scf'] = 0
         
         #self.parameters = get_plugin('models.parameters')(d)
-
-        self.cosmo = get_plugin('models.cosmology')(
-            #ombh2 = param(0.0221),
+#ombh2 = param(0.0221),
             #omch2 = param(0.12),
             #tau = param(0.09, range=(0.05,0.15)),
-            theta = param(0.010413),
+            #theta = param(0.010413),
             #phi0 = param(9.8, scale = 2.4, range = (9.2, 10.0)),
             #L = param(3.5, scale = 2.4, range = (2.5, 4.5)),
             #logkc = param(8.4, scale = 2.4, range = (6.6, 10.4)),
@@ -55,13 +53,19 @@ class main(SlikPlugin):
             #l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
             #l_max_tensor=3000,
             #pivot_scalar=0.05,
-            w=-1.0,
+            #w=-1.0,
             #r=None,
             #nrun=None,
             #omk=0,
             #Yp=None,
             #Tcmb=2.7255,
             #lensing = 'yes',
+
+
+
+        self.cosmo = get_plugin('models.cosmology')(
+            theta = param(0.010413),
+            w=-1.0,
             **d
         )
         
