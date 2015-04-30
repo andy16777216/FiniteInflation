@@ -39,8 +39,9 @@ class classy(SlikPlugin):
 
         self.model = Class()
 
-
     def __call__(self,
+                 **kwargs):
+    #def __call__(self,
                  #ombh2,
                  #omch2,
                  #H0,
@@ -61,7 +62,7 @@ class classy(SlikPlugin):
                  #l_max_tensor=3000,
                  #pivot_scalar=0.05,
                  #outputs=[],
-                 **kwargs):
+                 #**kwargs):
 
         print kwargs
 
