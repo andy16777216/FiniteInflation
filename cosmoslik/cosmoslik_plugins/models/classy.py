@@ -25,7 +25,8 @@ class classy(SlikPlugin):
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
-                    'omk':'Omega_k'
+                    'omk':'Omega_k',
+                    'l_max_scalar':'l_max_scalars'
                     }
 
 
@@ -72,7 +73,6 @@ class classy(SlikPlugin):
         d['modes'] = 's,t'
         self.model.set(output='tCl, lCl, pCl',
                        lensing='yes',
-                       l_max_scalars=l_max_scalar,
                        command = '../LSTfiniteR2/pk',
                        **d)
                        
