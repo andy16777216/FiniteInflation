@@ -76,6 +76,7 @@ class main(SlikPlugin):
         )
         
 	print self.cosmo
+	print self.parameters
 
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
