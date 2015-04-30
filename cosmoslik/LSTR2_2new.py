@@ -78,7 +78,6 @@ class main(SlikPlugin):
             omk=0,
             Yp=None,
             Tcmb=2.7255,
-            lensing = 'yes',
             **d
         )
         
