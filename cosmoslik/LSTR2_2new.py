@@ -68,16 +68,10 @@ class main(SlikPlugin):
             ns = None,
             k_c = None,
             alpha_exp = None,
-            massless_neutrinos=3.046, #param(3,.2)
-            l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
-            l_max_tensor=3000,
-            pivot_scalar=0.05,
             w=-1.0,
             r=None,
             nrun=None,
-            omk=0,
             Yp=None,
-            Tcmb=2.7255,
             **d
         )
         
