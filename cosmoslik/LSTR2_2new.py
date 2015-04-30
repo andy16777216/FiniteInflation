@@ -36,6 +36,7 @@ class main(SlikPlugin):
         d['Omega_fld'] = 0 #This and the line below specify a cosmological constant (in CLASS), consistent with w=-1 above
 	d['Omega_scf'] = 0
         
+        self.parameters = d
 
         self.cosmo = get_plugin('models.cosmology')(
             #ombh2 = param(0.0221),
@@ -117,7 +118,7 @@ class main(SlikPlugin):
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
-        self.cmb_result = self.get_cmb(self.cosmo.Yp,self.cosmo.H0,**d)
+        self.cmb_result = self.get_cmb(self.cosmo.Yp,self.cosmo.H0,self.parameters)
         
         return lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
