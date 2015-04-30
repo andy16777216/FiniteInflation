@@ -21,32 +21,46 @@ class main(SlikPlugin):
         d['ombh2'] = param(0.0221)
         d['omch2'] = param(0.12)
         d['tau'] = param(0.09, range=(0.05,0.15))
-        d['theta'] = param(0.010413)
+        #d['theta'] = param(0.010413)
+        d['phi0'] = param(9.8, scale = 2.4, range = (9.2, 10.0))
+        d['L'] = param(3.5, scale = 2.4, range = (2.5, 4.5))
+        d['logkc'] = param(8.4, scale = 2.4, range = (6.6, 10.4))
+        d['massless_neutrinos']=3.046
+        d['l_max_scalar']=3000
+        d['l_max_tensor']=3000
+        d['pivot_scalar']=0.05
+        d['lensing'] = 'yes'
+        d['Tcmb']=2.7255
+        d['omk']=0
+        #d['w']=-1.0 #This is used fot the theta to hubble conversion but not in CLASS
+        d['Omega_fld'] = 0 #This and the line below specify a cosmological constant (in CLASS), consistent with w=-1 above
+	d['Omega_scf'] = 0
+        
 
         self.cosmo = get_plugin('models.cosmology')(
             #ombh2 = param(0.0221),
             #omch2 = param(0.12),
             #tau = param(0.09, range=(0.05,0.15)),
-            #theta = param(0.010413),
-            phi0 = param(9.8, scale = 2.4, range = (9.2, 10.0)),
-            L = param(3.5, scale = 2.4, range = (2.5, 4.5)),
-            logkc = param(8.4, scale = 2.4, range = (6.6, 10.4)),
+            theta = param(0.010413),
+            #phi0 = param(9.8, scale = 2.4, range = (9.2, 10.0)),
+            #L = param(3.5, scale = 2.4, range = (2.5, 4.5)),
+            #logkc = param(8.4, scale = 2.4, range = (6.6, 10.4)),
             logA = None,
             As = None,
             ns = None,
             k_c = None,
             alpha_exp = None,
-            massless_neutrinos=3.046, #param(3,.2)
-            l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
-            l_max_tensor=3000,
-            pivot_scalar=0.05,
+            #massless_neutrinos=3.046, #param(3,.2)
+            #l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
+            #l_max_tensor=3000,
+            #pivot_scalar=0.05,
             w=-1.0,
             r=None,
             nrun=None,
-            omk=0,
+            #omk=0,
             Yp=None,
-            Tcmb=2.7255,
-            lensing = 'yes',
+            #Tcmb=2.7255,
+            #lensing = 'yes',
             **d
         )
         
