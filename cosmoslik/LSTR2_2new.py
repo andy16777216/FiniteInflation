@@ -75,8 +75,8 @@ class main(SlikPlugin):
             **d
         )
         
-	print self.cosmo
-	print self.parameters
+	#print self.cosmo
+	#print self.parameters
 
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
@@ -117,7 +117,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=4000,
+             num_samples=400,
              output_file='chains/LSTR2_2.chain',
              proposal_cov='r2cov.covmat',
              proposal_scale=2.4,
