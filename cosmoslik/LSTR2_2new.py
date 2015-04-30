@@ -17,7 +17,6 @@ class main(SlikPlugin):
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's,t'
         d['output']='tCl, lCl, pCl'
-        d['lensing']='yes'
         d['command'] = '../LSTfiniteR2/pk'
 
         self.cosmo = get_plugin('models.cosmology')(
