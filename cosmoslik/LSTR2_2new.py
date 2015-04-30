@@ -18,11 +18,12 @@ class main(SlikPlugin):
         d['modes'] = 's,t'
         d['output']='tCl, lCl, pCl'
         d['command'] = '../LSTfiniteR2/pk'
+        d['tau'] = param(0.09, range=(0.05,0.15))
 
         self.cosmo = get_plugin('models.cosmology')(
             ombh2 = param(0.0221),
             omch2 = param(0.12),
-            tau = param(0.09, range=(0.05,0.15)),
+            #tau = param(0.09, range=(0.05,0.15)),
             theta = param(0.010413),
             phi0 = param(9.8, scale = 2.4, range = (9.2, 10.0)),
             L = param(3.5, scale = 2.4, range = (2.5, 4.5)),
