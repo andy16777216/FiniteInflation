@@ -72,7 +72,7 @@ class classy(SlikPlugin):
                        command = '../LSTfiniteR2/pk',
                        **d)
                        
-        print self.model
+        print d
         
         self.model.compute()
 
