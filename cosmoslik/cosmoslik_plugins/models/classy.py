@@ -25,6 +25,7 @@ class classy(SlikPlugin):
                     'massless_neutrinos':'N_ur',
                     'Yp':'YHe',
                     'pivot_scalar':'k_pivot',
+                    'omk':'Omega_k'
                     }
 
 
