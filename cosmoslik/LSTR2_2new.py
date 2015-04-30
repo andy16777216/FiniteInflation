@@ -18,12 +18,12 @@ class main(SlikPlugin):
         d['modes'] = 's,t'
         d['output']='tCl, lCl, pCl'
         d['command'] = '../LSTfiniteR2/pk'
-        d['ombh2'] = param(0.0221, scale = 2.4)
-        d['omch2'] = param(0.12, scale = 2.4)
-        d['tau'] = param(0.09, scale = 2.4, range=(0.05,0.15))
+        d['ombh2'] = param(0.0221, scale = 0.01)
+        d['omch2'] = param(0.12, scale = 0.05)
+        d['tau'] = param(0.09, scale = 0.03, range=(0.05,0.15))
         #d['theta'] = param(0.010413)
         d['custom1'] = param(9.8, scale = 2.4, range = (9.2, 10.0)) #phi0
-        d['custom2'] = param(3.5, scale = 2.4, range = (2.5, 4.5)) #L
+        d['custom2'] = param(3.5, scale = 1.4, range = (2.5, 4.5)) #L
         d['custom3'] = param(8.4, scale = 2.4, range = (6.6, 10.4)) #logkc
         d['massless_neutrinos']=3.046
         d['l_max_scalar']=3000
