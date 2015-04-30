@@ -38,6 +38,8 @@ class main(SlikPlugin):
             Tcmb=2.7255,
             lensing = 'yes'#,
         )
+        
+	print self.cosmo
 
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
