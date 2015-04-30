@@ -117,7 +117,7 @@ class main(SlikPlugin):
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
-        self.cmb_result = self.get_cmb(outputs=['cl_TT','cl_TE','cl_EE','cl_BB','cl_PP','cl_TP'],**self.cosmo)
+        self.cmb_result = self.get_cmb(self.cosmo.Yp,self.cosmo.H0,**d)
         
         return lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
