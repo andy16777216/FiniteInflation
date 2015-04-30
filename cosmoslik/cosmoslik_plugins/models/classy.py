@@ -75,8 +75,8 @@ class classy(SlikPlugin):
                 d[k]=v
             
         
-        d['P_k_ini type']='external_Pk'
-        d['modes'] = 's,t'
+        #d['P_k_ini type']='external_Pk'
+        #d['modes'] = 's,t'
         self.model.set(**d)
                        
                        
