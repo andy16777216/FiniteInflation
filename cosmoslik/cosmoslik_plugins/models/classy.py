@@ -73,7 +73,7 @@ class classy(SlikPlugin):
                 d[self.name_mapping[k]]=v
             else:
                 d[k]=v
-            }
+            
         
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's,t'
