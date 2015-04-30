@@ -36,7 +36,7 @@ class main(SlikPlugin):
         d['Omega_fld'] = 0 #This and the line below specify a cosmological constant (in CLASS), consistent with w=-1 above
 	d['Omega_scf'] = 0
         
-        #self.parameters = get_plugin('models.parameters')(d)
+        self.parameters = get_plugin('models.CLASSparams')(d)
 #ombh2 = param(0.0221),
             #omch2 = param(0.12),
             #tau = param(0.09, range=(0.05,0.15)),
@@ -61,11 +61,24 @@ class main(SlikPlugin):
             #Tcmb=2.7255,
             #lensing = 'yes',
 
-
-
         self.cosmo = get_plugin('models.cosmology')(
             theta = param(0.010413),
+            logA = None,
+            As = None,
+            ns = None,
+            k_c = None,
+            alpha_exp = None,
+            massless_neutrinos=3.046, #param(3,.2)
+            l_max_scalar=3000,  #These variables are not set here, but in classy.py, must be edited there!!
+            l_max_tensor=3000,
+            pivot_scalar=0.05,
             w=-1.0,
+            r=None,
+            nrun=None,
+            omk=0,
+            Yp=None,
+            Tcmb=2.7255,
+            lensing = 'yes',
             **d
         )
         
@@ -119,10 +132,10 @@ class main(SlikPlugin):
 	)
         
     def __call__(self):
-        self.cosmo.Yp = self.bbn(**self.cosmo)
-        self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
+        self.parameters.Yp = self.bbn(**self.cosmo)
+        self.parameters.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
-        self.cmb_result = self.get_cmb(**self.cosmo)
+        self.cmb_result = self.get_cmb(**self.parameters)
         
         return lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
