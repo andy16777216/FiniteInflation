@@ -67,7 +67,7 @@ class classy(SlikPlugin):
                  #outputs=[],
                  #**kwargs):
 
-        print kwargs
+        #print kwargs
         
         d={}
         for k, v in kwargs.iteritems():
@@ -84,9 +84,9 @@ class classy(SlikPlugin):
         l_max = d['l_max_scalars']
         Tcmb =  d['T_cmb']
         
-        print l_max
+        #print l_max
 
-        print d
+        #print d
         
         self.model.compute()
 
