@@ -4,4 +4,4 @@ param = param_shortcut('start','scale')
 class CLASSparams(SlikPlugin):    
     
     def __init__(self,**kwargs):
-        super(cosmology,self).__init__(**dict(all_kw(locals()),**kwargs))
+        super(CLASSparams,self).__init__(**dict(all_kw(locals()),**kwargs))
