@@ -81,7 +81,7 @@ class classy(SlikPlugin):
         #d['modes'] = 's,t'
         self.model.set(**d)
                        
-        l_max = d['l_max_scalar']
+        l_max = d['l_max_scalars']
         
         print l_max
 
