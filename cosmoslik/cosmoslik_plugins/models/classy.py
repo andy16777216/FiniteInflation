@@ -77,11 +77,12 @@ class classy(SlikPlugin):
         
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's,t'
-        self.model.set(output='tCl, lCl, pCl',
-                       lensing='yes',
-                       command = '../LSTfiniteR2/pk',
-                       **d)
+        self.model.set(**d)
                        
+                       
+                      #output='tCl, lCl, pCl',
+                       #lensing='yes',
+                       #command = '../LSTfiniteR2/pk',
         print d
         
         self.model.compute()
