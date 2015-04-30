@@ -81,16 +81,16 @@ class classy(SlikPlugin):
         #d['modes'] = 's,t'
         self.model.set(**d)
                        
-                       
-                      #output='tCl, lCl, pCl',
-                       #lensing='yes',
-                       #command = '../LSTfiniteR2/pk',
+        l_max = d['l_max_scalar']
+        
+        print l_max
+
         print d
         
         self.model.compute()
 
-        ell = arange(l_max_scalar+1)
-        self.cmb_result = {'cl_%s'%x:(self.model.lensed_cl(l_max_scalar)[x.lower()])*Tcmb**2*1e12*ell*(ell+1)/2/pi
+        ell = arange(l_max+1)
+        self.cmb_result = {'cl_%s'%x:(self.model.lensed_cl(l_max)[x.lower()])*Tcmb**2*1e12*ell*(ell+1)/2/pi
                            for x in ['TT','TE','EE','BB','PP','TP']}
 
         self.model.struct_cleanup()
