@@ -70,7 +70,7 @@ class classy(SlikPlugin):
         d={}
         for k, v in kwargs.iteritems():
             if k in self.name_mapping and v is not None:
-                d[self.name_mapping[k]=v
+                d[self.name_mapping[k]]=v
             else:
                 d[k]=v
             }
