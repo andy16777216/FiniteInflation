@@ -66,9 +66,15 @@ class classy(SlikPlugin):
                  #**kwargs):
 
         print kwargs
-
-        d={self.name_mapping[k]:v for k,v in locals().items() 
-        if k in self.name_mapping and v is not None}
+        
+        d={}
+        for k, v in kwargs.iteritems():
+            if k in self.name_mapping and v is not None:
+                d[self.name_mapping[k]=v
+            else:
+                d[k]=v
+            }
+        
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's,t'
         self.model.set(output='tCl, lCl, pCl',
