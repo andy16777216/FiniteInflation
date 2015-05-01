@@ -17,7 +17,7 @@ class main(SlikPlugin):
         d['P_k_ini type']='external_Pk'
         d['modes'] = 's,t'
         d['output']='tCl, lCl, pCl'
-        d['command'] = '../LSTfiniteR2/pk'
+        d['command'] = '../LSTR2_2/pk'
         d['ombh2'] = param(0.0221, scale = 0.01)
         d['omch2'] = param(0.12, scale = 0.05)
         d['tau'] = param(0.09, scale = 0.03, range=(0.05,0.15))
