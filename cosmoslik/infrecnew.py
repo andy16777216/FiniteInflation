@@ -34,7 +34,7 @@ class main(SlikPlugin):
         d['custom10'] = param(2.5, scale = 2.4, range = (0, 6)) #A
         d['massless_neutrinos']=3.046
         d['l_max_scalar']=3000
-        d['l_max_tensor']=3000
+        #d['l_max_tensor']=3000
         d['pivot_scalar']=0.05
         d['lensing'] = 'yes'
         d['Tcmb']=2.7255
