@@ -121,15 +121,20 @@ class main(SlikPlugin):
                     lambda: self.pol(self.cmb_result)
                     )
                    
+        
         print self.parameters
+        print self.priors(self)
+        self.camspec(self.cmb_result)
+        self.lowl(self.cmb_result)
+        self.pol(self.cmb_result)
         print loglike
         
-        return loglike
-        #return lsum(lambda: self.priors(self),
-        #            lambda: self.camspec(self.cmb_result),
-        #            lambda: self.lowl(self.cmb_result),
-        #            lambda: self.pol(self.cmb_result)
-        #            )
+        #return loglike
+        return lsum(lambda: self.priors(self),
+                    lambda: self.camspec(self.cmb_result),
+                    lambda: self.lowl(self.cmb_result),
+                    lambda: self.pol(self.cmb_result)
+                    )
 
 if __name__=='__main__':
      #run the chain
