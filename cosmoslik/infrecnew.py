@@ -101,7 +101,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=100,
+             num_samples=10000,
              output_file='chains/infrecMC.chain',
              proposal_cov='r2cov.covmat',
              proposal_scale=2.4,
