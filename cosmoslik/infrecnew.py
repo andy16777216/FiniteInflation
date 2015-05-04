@@ -22,16 +22,16 @@ class main(SlikPlugin):
         d['omch2'] = param(0.12, scale = 0.05)
         d['tau'] = param(0.09, scale = 0.03, range=(0.05,0.15))
         #d['theta'] = param(0.010413)
-        d['custom1'] = param(-2, scale = 2.4, range = (-3, 3)) #xi0
-        d['custom2'] = param(3.2, scale = 2.4, range = (0, 6)) #k1
-        d['custom3'] = param(0.4, scale = 2.4, range = (-3, 3)) #xi2
-        d['custom4'] = param(2.8, scale = 2.4, range = (0, 6)) #k3
-        d['custom5'] = param(2, scale = 2.4, range = (-3, 3)) #xi4
-        d['custom6'] = param(2.4, scale = 2.4, range = (0, 6)) #k5
-        d['custom7'] = param(0.99, scale = 2.4, range = (-3, 3)) #xi6
-        d['custom8'] = param(2, scale = 2.4, range = (0, 6)) #k7
-        d['custom9'] = param(0.98, scale = 2.4, range = (-3, 3)) #xi8
-        d['custom10'] = param(2.5, scale = 2.4, range = (0, 6)) #A
+        d['custom1'] = param(-2, scale = 0.4, range = (-3, 3)) #xi0
+        d['custom2'] = param(3.2, scale = 0.4, range = (0, 6)) #k1
+        d['custom3'] = param(0.4, scale = 0.4, range = (-3, 3)) #xi2
+        d['custom4'] = param(2.8, scale = 0.4, range = (0, 6)) #k3
+        d['custom5'] = param(2, scale = 0.4, range = (-3, 3)) #xi4
+        d['custom6'] = param(2.4, scale = 0.4, range = (0, 6)) #k5
+        d['custom7'] = param(0.99, scale = 0.4, range = (-3, 3)) #xi6
+        d['custom8'] = param(2, scale = 0.4, range = (0, 6)) #k7
+        d['custom9'] = param(0.98, scale = 0.4, range = (-3, 3)) #xi8
+        d['custom10'] = param(2.5, scale = 0.4, range = (0, 6)) #A
         d['massless_neutrinos']=3.046
         d['l_max_scalar']=3000
         #d['l_max_tensor']=3000
