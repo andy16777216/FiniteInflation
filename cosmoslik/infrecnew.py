@@ -101,7 +101,7 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=400,
+             num_samples=4000,
              output_file='chains/infrecMC.chain',
              proposal_cov='r2cov.covmat',
              proposal_scale=2.4,
@@ -115,11 +115,19 @@ class main(SlikPlugin):
 	    #print 'getting cmb'
         self.cmb_result = self.get_cmb(**self.parameters)
         
-        return lsum(lambda: self.priors(self),
+        loglike = lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result)
                     )
+        print loglike
+        
+        return loglike
+        #return lsum(lambda: self.priors(self),
+        #            lambda: self.camspec(self.cmb_result),
+        #            lambda: self.lowl(self.cmb_result),
+        #            lambda: self.pol(self.cmb_result)
+        #            )
 
 if __name__=='__main__':
      #run the chain
