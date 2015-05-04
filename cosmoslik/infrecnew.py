@@ -115,19 +115,19 @@ class main(SlikPlugin):
 	    #print 'getting cmb'
         self.cmb_result = self.get_cmb(**self.parameters)
         
-        loglike = lsum(lambda: self.priors(self),
-                    lambda: self.camspec(self.cmb_result),
-                    lambda: self.lowl(self.cmb_result),
-                    lambda: self.pol(self.cmb_result)
-                    )
+        #loglike = lsum(lambda: self.priors(self),
+        #            lambda: self.camspec(self.cmb_result),
+        #            lambda: self.lowl(self.cmb_result),
+        #            lambda: self.pol(self.cmb_result)
+        #            )
                    
         
-        print self.parameters
-        print self.priors(self)
-        print self.camspec(self.cmb_result)
-        print self.lowl(self.cmb_result)
-        print self.pol(self.cmb_result)
-        print loglike
+        #print self.parameters
+        #print self.priors(self)
+        #print self.camspec(self.cmb_result)
+        #print self.lowl(self.cmb_result)
+        #print self.pol(self.cmb_result)
+        #print loglike
         
         #return loglike
         return lsum(lambda: self.priors(self),
