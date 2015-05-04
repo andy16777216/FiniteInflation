@@ -124,9 +124,9 @@ class main(SlikPlugin):
         
         print self.parameters
         print self.priors(self)
-        self.camspec(self.cmb_result)
-        self.lowl(self.cmb_result)
-        self.pol(self.cmb_result)
+        print self.camspec(self.cmb_result)
+        print self.lowl(self.cmb_result)
+        print self.pol(self.cmb_result)
         print loglike
         
         #return loglike
