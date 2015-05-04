@@ -120,6 +120,8 @@ class main(SlikPlugin):
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result)
                     )
+                   
+        print self.parameters
         print loglike
         
         return loglike
