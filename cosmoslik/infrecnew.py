@@ -103,7 +103,7 @@ class main(SlikPlugin):
              self,
              num_samples=1000000,
              output_file='chains/infrecMC.chain',
-             proposal_cov='r2cov.covmat',
+             proposal_cov='ircov.covmat',
              proposal_scale=2.4,
              #print_level=0,
              output_extra_params=['parameters.Yp','parameters.H0']
