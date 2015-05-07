@@ -64,7 +64,7 @@ class main(SlikPlugin):
 
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
-            clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
+            clik_file='/software/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
             A_ps_100=param(150,min=0),
             A_ps_143=param(60,min=0),
             A_ps_217=param(60,min=0),
@@ -82,11 +82,11 @@ class main(SlikPlugin):
         )
 
         self.lowl = get_plugin('likelihoods.clik')(
-          clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/commander_v4.1_lm49.clik'
+          clik_file='/software/cosmomc/likelihoods/clik_0313/data/commander_v4.1_lm49.clik'
         )
         
         self.pol = get_plugin('likelihoods.clik')(
-          clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lowlike_v222.clik'
+          clik_file='/software/cosmomc/likelihoods/clik_0313/data/lowlike_v222.clik'
         )
 
     	#print 'loading cosmology'
