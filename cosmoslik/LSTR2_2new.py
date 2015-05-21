@@ -80,7 +80,7 @@ class main(SlikPlugin):
 
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
-            clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
+            clik_file='/software/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
             A_ps_100=param(150,min=0),
             A_ps_143=param(60,min=0),
             A_ps_217=param(60,min=0),
@@ -98,11 +98,11 @@ class main(SlikPlugin):
         )
 
         self.lowl = get_plugin('likelihoods.clik')(
-          clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/commander_v4.1_lm49.clik'
+          clik_file='/software/cosmomc/likelihoods/clik_0313/data/commander_v4.1_lm49.clik'
         )
         
         self.pol = get_plugin('likelihoods.clik')(
-          clik_file='/software/mint15/cosmomc/likelihoods/clik_0313/data/lowlike_v222.clik'
+          clik_file='/software/cosmomc/likelihoods/clik_0313/data/lowlike_v222.clik'
         )
 
     	#print 'loading cosmology'
@@ -118,7 +118,7 @@ class main(SlikPlugin):
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
              num_samples=1000000,
-             output_file='chains/LSTR2_2.chain',
+             output_file='chains/LSTR2_2new.chain',
              proposal_cov='r2cov.covmat',
              proposal_scale=2.4,
              #print_level=0,
