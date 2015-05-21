@@ -34,6 +34,14 @@ Configure and build python code (run from cosmoslik directory):
 
 ./waf install
 
+Add to .bash_profile:
+
+if [ -f ~/planck_data/plc-1.0/bin/clik_profile.sh ]; then
+source ~/planck_data/plc-1.0/bin/clik_profile.sh
+fi
+
+
+
 To run the chain:
 
 nohup mpiexec -n 5 python -m cosmoslik myprogram.py --traceback &
