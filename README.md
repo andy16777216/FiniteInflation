@@ -28,7 +28,7 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
-Configure and build python code (run from cosmoslik directory):
+Configure and build clik from the clik directory with waf in it:
 
 ./waf configure --install_all_deps
 
@@ -40,7 +40,11 @@ if [ -f ~/planck_data/plc-1.0/bin/clik_profile.sh ]; then
 source ~/planck_data/plc-1.0/bin/clik_profile.sh
 fi
 
+Configure and build python code (run from cosmoslik directory):
 
+./waf configure --install_all_deps
+
+./waf install
 
 To run the chain:
 
