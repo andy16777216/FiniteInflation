@@ -30,7 +30,9 @@ fi
 
 Configure and build python code (run from cosmoslik directory):
 
-./waf configure build
+./waf configure --install_all_deps
+
+./waf install
 
 To run the chain:
 
