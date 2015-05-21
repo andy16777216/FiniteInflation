@@ -32,3 +32,8 @@ Configure and build python code (run from cosmoslik directory):
 
 ./waf configure build
 
+To run the chain:
+
+nohup mpiexec -n 5 python -m cosmoslik myprogram.py --traceback &
+
+where 5 = 4 + 1 corresponds to 4 chains and one master process, and myprogram.py is replaced with the filename of the parameter settings code.
