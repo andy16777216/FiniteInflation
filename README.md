@@ -22,6 +22,19 @@ add to .bashrc the locations of likelihood files and also the main cosmoslik dir
 export PYTHONPATH=/.../cosmomc/likelihoods/clik_0313/plc-1.0/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=~/.../cosmoslik:$PYTHONPATH
 
+export PYTHONPATH=~/planck_data/plc-1.0/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=~/FiniteInflation/cosmoslik:$PYTHONPATH
+export PYTHONPATH=/software/cosmomc/likelihoods/clik_0313/plc-1.0/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=~/transients/cosmoslik:$PYTHONPATH
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/software/ifort_temp/composer_xe_2013_sp1.0.080/compiler/lib
+export LD_RUN_PATH=$LD_RUN_PATH:/software/ifort_temp/composer_xe_2013_sp1.0.080/compiler/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/software/ifort_temp/composer_xe_2013_sp1.0.080/compiler/lib/intel64
+export LD_RUN_PATH=$LD_RUN_PATH:/software/ifort_temp/composer_xe_2013_sp1.0.080/compiler/lib/intel64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/planck_data/plc-1.0/lib
+export LD_RUN_PATH=$LD_RUN_PATH:~/planck_data/plc-1.0/lib
+
+
 add to .bash_profile:
 
 if [ -f ~/.bashrc ]; then
@@ -42,9 +55,9 @@ fi
 
 Configure and build python code (run from cosmoslik directory):
 
-./waf configure --install_all_deps
+./waf configure --inplace
 
-./waf install
+./waf install  --inplace
 
 To run the chain:
 
