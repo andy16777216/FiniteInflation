@@ -130,6 +130,8 @@ class main(SlikPlugin):
         self.parameters.Yp = self.bbn(**self.cosmo)
         self.parameters.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
+	print (self.parameters.custom1, self.parameters.custom2, self.parameters.custom3)
+	    
         self.cmb_result = self.get_cmb(**self.parameters)
         
         return lsum(lambda: self.priors(self),
