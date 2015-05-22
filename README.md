@@ -19,9 +19,6 @@ make all
 
 add to .bashrc the locations of likelihood files and also the main cosmoslik directory so python knows where to look:
 
-export PYTHONPATH=/.../cosmomc/likelihoods/clik_0313/plc-1.0/lib/python2.7/site-packages:$PYTHONPATH
-export PYTHONPATH=~/.../cosmoslik:$PYTHONPATH
-
 export PYTHONPATH=~/planck_data/plc-1.0/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=~/FiniteInflation/cosmoslik:$PYTHONPATH
 export PYTHONPATH=/software/cosmomc/likelihoods/clik_0313/plc-1.0/lib/python2.7/site-packages:$PYTHONPATH
