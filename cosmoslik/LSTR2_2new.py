@@ -143,7 +143,8 @@ class main(SlikPlugin):
         
 	with open('LSTR2_2new.csv', 'wb') as csvfile:
     		spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    		spamwriter.writerow(self.parameters)
+    		for item in self.parameters:
+    			spamwriter.writerow(item)
     	
         return loglike
 
