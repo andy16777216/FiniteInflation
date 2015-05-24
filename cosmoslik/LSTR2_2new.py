@@ -135,7 +135,7 @@ class main(SlikPlugin):
 	    
         self.cmb_result = self.get_cmb(**self.parameters)
         
-        self.lnl = lsum(lambda: self.priors(self),
+        self.parameters.loglike = lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result)
@@ -143,9 +143,9 @@ class main(SlikPlugin):
         
 	with open('LSTR2_2new.csv', 'wb') as csvfile:
     		spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    		spamwriter.writerow(self.parameters, self.lnl)
+    		spamwriter.writerow(self.parameters)
     	
-        return lnl
+        return loglike
 
 if __name__=='__main__':
      #run the chain
