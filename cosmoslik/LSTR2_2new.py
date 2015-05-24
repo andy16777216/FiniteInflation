@@ -1,7 +1,8 @@
 from cosmoslik import *
 from numpy import interp, identity, exp, inf, arange, hstack, loadtxt, zeros, ones, log, invert
 import sys
-import math        
+import math
+import csv
 param = param_shortcut('start','scale')
 
 import os.path as osp
@@ -134,11 +135,18 @@ class main(SlikPlugin):
 	    
         self.cmb_result = self.get_cmb(**self.parameters)
         
-        return lsum(lambda: self.priors(self),
+        self.lnl = lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result)
                     )
+        
+	with open('LSTR2_2new.csv', 'wb') as csvfile:
+    	spamwriter = csv.writer(csvfile, delimiter=' ',
+                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    	spamwriter.writerow(self.parameters, self.lnl)
+    	
+        return lnl
 
 if __name__=='__main__':
      #run the chain
