@@ -107,7 +107,7 @@ class metropolis_hastings(SlikSampler):
                  proposal_cov=None,
                  proposal_scale=2.4,
                  proposal_update=True,
-                 proposal_update_start=1000,
+                 proposal_update_start=100,
                  mpi_comm_freq=100,
                  debug_output=False,
                  temp=1,
