@@ -39,7 +39,7 @@ class main(SlikPlugin):
 	#d['Omega_scf'] = 0
         
         
-        classparamlist = d.keys()
+        #classparamlist = d.keys()
         
         self.parameters = get_plugin('models.CLASSparams')(**d)
 #ombh2 = param(0.0221),
@@ -77,7 +77,7 @@ class main(SlikPlugin):
             r=None,
             nrun=None,
             Yp=None,
-            classparamlist=[],
+            classparamlist=d.keys(),
             **d
         )
         
