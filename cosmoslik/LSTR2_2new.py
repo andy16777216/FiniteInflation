@@ -39,8 +39,7 @@ class main(SlikPlugin):
 	#d['Omega_scf'] = 0
         
         
-        self.paramlist = keys for keys in d.iterkeys()
-        print self.paramlist
+        classparamlist = d.keys()
         
         self.parameters = get_plugin('models.CLASSparams')(**d)
 #ombh2 = param(0.0221),
@@ -78,6 +77,7 @@ class main(SlikPlugin):
             r=None,
             nrun=None,
             Yp=None,
+            classparamlist,
             **d
         )
         
@@ -145,7 +145,7 @@ class main(SlikPlugin):
                     lambda: self.pol(self.cmb_result)
                     )
         
-        
+        print self.cosmo.classparamlist
         
 	with open('LSTR2_2new.csv', 'ab') as csvfile:
     		spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
