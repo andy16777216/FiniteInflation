@@ -112,6 +112,8 @@ class main(SlikPlugin):
 	
         #print self.cosmo.classparamlist	
 	
+	print self.priors(self)
+	
         self.cmb_result = self.get_cmb(**self.cosmo)
         
         self.cosmo.loglike = lsum(lambda: self.priors(self),
