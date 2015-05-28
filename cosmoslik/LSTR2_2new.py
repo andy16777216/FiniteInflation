@@ -77,7 +77,7 @@ class main(SlikPlugin):
             r=None,
             nrun=None,
             Yp=None,
-            classparamlist,
+            classparamlist=[],
             **d
         )
         
