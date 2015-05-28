@@ -79,11 +79,11 @@ class classy(SlikPlugin):
         
     def __call__(self,**kwargs):
         
-        print kwargs.classparamlist
-        print kwargs.d
+        print kwargs['classparamlist']
+        print kwargs['d']
         
         d={}
-        for k in kwargs.classparamlist:
+        for k,v in kwargs['d']:
             if k in self.name_mapping and v is not None:
                 d[self.name_mapping[k]]=v
             else:
