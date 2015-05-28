@@ -78,9 +78,9 @@ class classy(SlikPlugin):
         #print kwargs
         
     def __call__(self,**kwargs):
-        
-        print kwargs['classparamlist']
-        print kwargs['d']
+        print kwargs
+        #print kwargs['classparamlist']
+        #print kwargs['d']
         
         d={}
         for k,v in kwargs['d']:
