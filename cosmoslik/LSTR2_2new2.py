@@ -102,7 +102,7 @@ class main(SlikPlugin):
              proposal_cov='r2cov.covmat',
              proposal_scale=2.4,
              #print_level=0,
-             output_extra_params=['parameters.Yp','parameters.H0']
+             output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
         
     def __call__(self):
