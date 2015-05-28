@@ -33,7 +33,7 @@ class main(SlikPlugin):
         d['lensing'] = 'yes'
         d['Tcmb']=2.7255
         d['omk']=0
-        d['k_per_decade_primordial'] = 100.
+        #d['k_per_decade_primordial'] = 100.
         #d['w']=-1.0 #This is used fot the theta to hubble conversion but not in CLASS
         #d['Omega_fld'] = 0 #This and the line below specify a cosmological constant (in CLASS), consistent with w=-1 above
 	#d['Omega_scf'] = 0
