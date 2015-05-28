@@ -38,6 +38,7 @@ class main(SlikPlugin):
         #d['Omega_fld'] = 0 #This and the line below specify a cosmological constant (in CLASS), consistent with w=-1 above
 	#d['Omega_scf'] = 0
         
+        cpl=d.keys()
         
         self.cosmo = get_plugin('models.cosmology')(
             theta = param(0.010413),
@@ -50,7 +51,7 @@ class main(SlikPlugin):
             r=None,
             nrun=None,
             Yp=None,
-            classparamlist=d.keys(),
+            classparamlist=cpl,
             **d
         )
         
