@@ -1,5 +1,5 @@
 from cosmoslik import *
-from numpy import interp, identity, exp, inf, arange, hstack, loadtxt, zeros, ones, log, invert
+from numpy import interp, identity, exp, inf, arange, hstack, loadtxt, zeros, ones, log, invert, isinf
 import sys
 import math
 import csv
@@ -114,9 +114,12 @@ class main(SlikPlugin):
 	
 	print self.priors(self)
 	
-        self.cmb_result = self.get_cmb(**self.cosmo)
+	if isinf(self.priors(self)):
+		return inf
+	else:
+        	self.cmb_result = self.get_cmb(**self.cosmo)
         
-        self.cosmo.loglike = lsum(lambda: self.priors(self),
+        	self.cosmo.loglike = lsum(lambda: self.priors(self),
                     lambda: self.camspec(self.cmb_result),
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result)
