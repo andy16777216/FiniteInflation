@@ -42,8 +42,16 @@ class classy(SlikPlugin):
 
         self.model = Class()
 
-    def __call__(self,
-                 **kwargs):
+    #def __call__(self,
+    #             **kwargs):
+    
+    #    d={}
+     #   for k, v in kwargs.iteritems():
+      #      if k in self.name_mapping and v is not None:
+       #         d[self.name_mapping[k]]=v
+        #    else:
+         #       d[k]=v
+    
     #def __call__(self,
                  #ombh2,
                  #omch2,
@@ -69,8 +77,13 @@ class classy(SlikPlugin):
 
         #print kwargs
         
+    def __call__(self,**kwargs):
+        
+        print kwargs.classparamlist
+        print kwargs.d
+        
         d={}
-        for k, v in kwargs.iteritems():
+        for k in kwargs.classparamlist:
             if k in self.name_mapping and v is not None:
                 d[self.name_mapping[k]]=v
             else:
