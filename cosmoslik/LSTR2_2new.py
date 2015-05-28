@@ -38,6 +38,10 @@ class main(SlikPlugin):
         #d['Omega_fld'] = 0 #This and the line below specify a cosmological constant (in CLASS), consistent with w=-1 above
 	#d['Omega_scf'] = 0
         
+        
+        self.paramlist = keys for keys in d.iterkeys()
+        print self.paramlist
+        
         self.parameters = get_plugin('models.CLASSparams')(**d)
 #ombh2 = param(0.0221),
             #omch2 = param(0.12),
