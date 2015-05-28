@@ -108,11 +108,11 @@ class main(SlikPlugin):
         self.cosmo.Yp = self.bbn(**self.cosmo)
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
-	print (self.cosmo.custom1, self.cosmo.custom2, self.cosmo.custom3)
+	#print (self.cosmo.custom1, self.cosmo.custom2, self.cosmo.custom3)
 	
         #print self.cosmo.classparamlist	
 	
-	print self.priors(self)
+	#print self.priors(self)
 	
 	if isinf(self.priors(self)):
 		return inf
