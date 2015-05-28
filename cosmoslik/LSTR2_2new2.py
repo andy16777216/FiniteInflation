@@ -100,7 +100,7 @@ class main(SlikPlugin):
              output_file='chains/LSTR2_2new.chain',
              proposal_cov='r2cov.covmat',
              proposal_scale=2.4,
-             #print_level=0,
+             print_level=1,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
         
