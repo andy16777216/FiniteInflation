@@ -110,7 +110,9 @@ class main(SlikPlugin):
         self.cosmo.H0 = self.hubble_theta.theta_to_hubble(**self.cosmo)
 	    #print 'getting cmb'
 	print (self.cosmo.custom1, self.cosmo.custom2, self.cosmo.custom3)
-	    
+	
+        print self.cosmo.classparamlist	
+	
         self.cmb_result = self.get_cmb(**self.cosmo)
         
         self.cosmo.loglike = lsum(lambda: self.priors(self),
@@ -118,8 +120,6 @@ class main(SlikPlugin):
                     lambda: self.lowl(self.cmb_result),
                     lambda: self.pol(self.cmb_result)
                     )
-        
-        print self.cosmo.classparamlist
         
 	#with open('LSTR2_2new.csv', 'ab') as csvfile:
     		#spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
