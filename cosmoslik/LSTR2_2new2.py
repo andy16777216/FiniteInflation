@@ -98,9 +98,13 @@ class main(SlikPlugin):
              self,
              num_samples=1000,
              output_file='chains/LSTR2_2new.chain',
-             proposal_cov='r2cov.covmat',
-             proposal_scale=2.4,
-             print_level=1,
+             proposal_cov='../data/proposal.covmat',
+             #proposal_cov='r2cov.covmat',
+             #proposal_scale=2.4,
+             print_level=2,
+             proposal_update_start=100,
+             mpi_comm_freq=10,
+             debug_output=True,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
         
