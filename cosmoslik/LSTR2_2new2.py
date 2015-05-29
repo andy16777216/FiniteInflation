@@ -19,9 +19,9 @@ class main(SlikPlugin):
         d['modes'] = 's,t'
         d['output']='tCl, lCl, pCl'
         d['command'] = '../LSTR2_2/pk'
-        d['ombh2'] = param(0.0221, scale = 0.01)
-        d['omch2'] = param(0.12, scale = 0.05)
-        d['tau'] = param(0.09, scale = 0.03, range=(0.05,0.15))
+        d['ombh2'] = param(0.0221)
+        d['omch2'] = param(0.12)
+        d['tau'] = param(0.09, range=(0.05,0.15))
         #d['theta'] = param(0.010413)
         d['custom1'] = param(9.8, scale = 0.4, range = (9.2, 10.0)) #phi0
         d['custom2'] = param(3.5, scale = 0.4, range = (2.5, 4.5)) #L
@@ -100,7 +100,7 @@ class main(SlikPlugin):
              output_file='chains/LSTR2_2new.chain',
              proposal_cov='../data/proposal.covmat',
              #proposal_cov='r2cov.covmat',
-             #proposal_scale=2.4,
+             proposal_scale=1,
              print_level=2,
              proposal_update_start=100,
              mpi_comm_freq=10,
