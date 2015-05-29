@@ -19,13 +19,13 @@ class main(SlikPlugin):
         d['modes'] = 's,t'
         d['output']='tCl, lCl, pCl'
         d['command'] = '../LSTR2_2/pk'
-        d['ombh2'] = param(0.0221)
-        d['omch2'] = param(0.12)
-        d['tau'] = param(0.09, range=(0.05,0.15))
+        d['ombh2'] = param(0.02207863858642484, scale = 0.00025176398454803333)
+        d['omch2'] = param(0.11957079477757622, scale = 0.00207309880071336)
+        d['tau'] = param(0.087773083101280264, scale = 0.012187648687260483, range=(0.05,0.15))
         #d['theta'] = param(0.010413)
-        d['custom1'] = param(9.8, scale = 0.4, range = (9.2, 10.0)) #phi0
-        d['custom2'] = param(3.5, scale = 0.4, range = (2.5, 4.5)) #L
-        d['custom3'] = param(8.4, scale = 0.4, range = (6.6, 10.4)) #logkc
+        d['custom1'] = param(9.6442079425117182, scale = 0.13033213062684648, range = (9.2, 10.0)) #phi0
+        d['custom2'] = param(3.4954418402782967, scale = 0.20282354381662321, range = (2.5, 4.5)) #L
+        d['custom3'] = param(8.876773202948355, scale = 0.68803250879040911, range = (7.0, 10.4)) #logkc
         d['massless_neutrinos']=3.046
         d['l_max_scalar']=3000
         d['l_max_tensor']=3000
@@ -41,7 +41,7 @@ class main(SlikPlugin):
         d['classparamlist']=d.keys()
         
         self.cosmo = get_plugin('models.cosmology')(
-            theta = param(0.010413),
+            theta = param(0.01041647232923798, scale = 5.7229094877058284e-06),
             logA = None,
             As = None,
             ns = None,
@@ -60,20 +60,20 @@ class main(SlikPlugin):
 	#print 'loading likelihoods'
         self.camspec = get_plugin('likelihoods.clik')(
             clik_file='/software/cosmomc/likelihoods/clik_0313/data/CAMspec_v6.2TN_2013_02_26_dist.clik',
-            A_ps_100=param(150,min=0),
-            A_ps_143=param(60,min=0),
-            A_ps_217=param(60,min=0),
-            A_cib_143=param(10,min=0),
-            A_cib_217=param(40,min=0),
-            A_sz=param(5,scale=1,range=(0,20)),
-            r_ps=param(0.7,range=(0,1)),
-            r_cib=param(0.7,range=(0,1)),
-            n_Dl_cib=param(0.8,scale=0.2,gaussian_prior=(0.8,0.2)),
-            cal_100=param(1,scale=0.001),
-            cal_217=param(1,scale=0.001),
-            xi_sz_cib=param(0.5,scale=0.2,range=(-1,1)),
-            A_ksz=param(1,range=(0,5)),
-            Bm_1_1=param(0,scale=1,gaussian_prior=(0,1))
+            A_ps_100=param(151.84993105553934, scale = 64.753365940060135,min=0),
+            A_ps_143=param(41.82997089071911, scale = 16.954706637330407,min=0),
+            A_ps_217=param(95.768959993076891, scale = 19.418585842152446,min=0),
+            A_cib_143=param(9.420343804906306, scale = 8.1999445289557755,min=0),
+            A_cib_217=param(37.085359206553534, scale = 9.2834146629028602,min=0),
+            A_sz=param(7.855364936949421, scale = 4.8787513109523815,range=(0,20)),
+            r_ps=param(0.83710552570838892, scale = 0.14025187983106405,range=(0,1)),
+            r_cib=param(0.49469482845803275, scale = 0.2459406113725135,range=(0,1)),
+            n_Dl_cib=param(0.6260361205728302, scale = 0.10416066352042916,gaussian_prior=(0.8,0.2)),
+            cal_100=param(1.0005741662931826, scale = 0.00038589325907093972),
+            cal_217=param(0.99641097150505309, scale = 0.0013591071204870334),
+            xi_sz_cib=param(-0.18021245310622472, scale = 0.56241393555434716,range=(-1,1)),
+            A_ksz=param(2.4371002035474274, scale = 1.4508314235334643,range=(0,5)),
+            Bm_1_1=param(0.4310444057902954, scale = 0.51288786510446649,gaussian_prior=(0,1))
         )
 
         self.lowl = get_plugin('likelihoods.clik')(
@@ -98,12 +98,12 @@ class main(SlikPlugin):
              self,
              num_samples=1000,
              output_file='chains/LSTR2_2new2.chain',
-             proposal_cov='../data/proposal.covmat',
+             #proposal_cov='../data/proposal.covmat',
              #proposal_cov='r2cov.covmat',
-             proposal_scale=1,
+             #proposal_scale=1,
              print_level=2,
              proposal_update_start=10,
-             mpi_comm_freq=10,
+             mpi_comm_freq=1,
              debug_output=True,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
