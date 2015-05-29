@@ -96,14 +96,14 @@ class main(SlikPlugin):
 	#print 'loading sampler'
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
-             num_samples=1000,
-             output_file='chains/LSTR2_2new2_1.chain',
+             num_samples=1000000,
+             output_file='chains/LSTR2_2new2_2.chain',
              #proposal_cov='../data/proposal.covmat',
              #proposal_cov='r2cov.covmat',
              #proposal_scale=1,
-             print_level=2,
-             proposal_update_start=10,
-             mpi_comm_freq=1,
+             print_level=0,
+             proposal_update_start=1000,
+             mpi_comm_freq=100,
              debug_output=True,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
