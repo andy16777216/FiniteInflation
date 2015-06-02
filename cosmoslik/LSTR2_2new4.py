@@ -97,7 +97,7 @@ class main(SlikPlugin):
         self.sampler = get_plugin('samplers.metropolis_hastings')(
              self,
              num_samples=1000000,
-             output_file='chains/LSTR2_2new2_3.chain',
+             output_file='chains/LSTR2_2new2_4.chain',
              #proposal_cov='../data/proposal.covmat',
              proposal_cov='r2cov.covmat',
              proposal_scale=1,
