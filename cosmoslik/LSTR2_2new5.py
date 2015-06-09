@@ -102,10 +102,10 @@ class main(SlikPlugin):
              #proposal_cov='../data/proposal.covmat',
              proposal_cov='r2cov.covmat',
              proposal_scale=1,
-             print_level=2,
+             print_level=0,
              proposal_update_start=1000,
              mpi_comm_freq=10,
-             debug_output=True,
+             debug_output=False,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
         
