@@ -130,7 +130,7 @@ class main(SlikPlugin):
                     lambda: self.pol(self.cmb_result)
                     )
         
-        print self.cosmo
+        #print self.cosmo
         
 	#with open('LSTR2_2new.csv', 'ab') as csvfile:
     		#spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
