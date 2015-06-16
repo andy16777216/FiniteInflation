@@ -39,7 +39,7 @@ class main(SlikPlugin):
 	#d['Omega_scf'] = 0
         
         d['classparamlist']=d.keys()
-        d['classparamlist'].extend(['cosmo.Yp','cosmo.H0'])
+        d['classparamlist'].extend(['Yp','H0'])
         
         self.cosmo = get_plugin('models.cosmology')(
             theta = param(0.01041647232923798, scale = 5.7229094877058284e-06),
@@ -104,7 +104,7 @@ class main(SlikPlugin):
              proposal_scale=1,
              print_level=0,
              proposal_update_start=1000,
-             mpi_comm_freq=100,
+             mpi_comm_freq=20,
              debug_output=False,
              output_extra_params=['cosmo.Yp','cosmo.H0']
 	)
